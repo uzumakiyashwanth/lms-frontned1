@@ -1,5 +1,5 @@
 import React from "react";
-import '../App.css'; // Optional: Adjust according to your styling needs
+import './BlogResources.css';
 import MainNavbar from "../components/MainNavbar";
 
 const BlogResources = () => {

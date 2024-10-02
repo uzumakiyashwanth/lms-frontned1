@@ -86,6 +86,7 @@ body {
 /* Course Cards Styling */
 .course-cards-section {
     padding: 50px 20px;
+    background-color:black ;
 }
 
 .course-cards {

@@ -1,9 +1,11 @@
 .page-container,
+
+
 .form-container {
-    max-width: 800px;
-    margin: 20px auto;
+    max-width: 400px;
+    margin: 40px auto;
     padding: 20px;
-    background: white;
+    background: rgb(124, 121, 121);
     border-radius: 8px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }

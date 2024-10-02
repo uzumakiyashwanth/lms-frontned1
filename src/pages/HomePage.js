@@ -106,11 +106,11 @@ const HomePage = () => {
                 <div className="testimonials">
                     <div className="testimonial">
                         <p>"The LMS has helped me track my progress and manage my learning much better!"</p>
-                        <h4>- Jane Doe, Student</h4>
+                        <h4>- Anirudh, Student</h4>
                     </div>
                     <div className="testimonial">
                         <p>"Creating courses and interacting with students has never been easier!"</p>
-                        <h4>- John Smith, Instructor</h4>
+                        <h4>- S.S Thaman, Instructor</h4>
                     </div>
                 </div>
             </div>
