@@ -1,19 +1,17 @@
 body {
-    background-color: black; /* Ensure the background is black as per your request */
-    color: white; /* Set all text to white for readability */
+    background-color: black;
+    color: white;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
 
-/* Global content wrapper */
 .content-wrapper {
     text-align: center;
     padding: 20px;
-    color: white; /* Text remains white to contrast the black background */
+    color: white;
 }
 
-/* CTA Button styling */
 .cta-button {
     background-color: #007bff;
     color: white;
@@ -25,16 +23,15 @@ body {
 
 .cta-button:hover {
     background-color: #0056b3;
-    transform: translateY(-3px); /* Slight hover effect for better UX */
+    transform: translateY(-3px);
 }
 
-/* Hero Section */
 .hero-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 50px;
-    background-color: #222; /* Slightly lighter than black to add contrast */
+    background-color: #222;
 }
 
 .hero-text h1 {
@@ -52,7 +49,6 @@ body {
     height: auto;
 }
 
-/* Features Section */
 .features-section {
     background-color: #111;
     padding: 40px 20px;
@@ -75,7 +71,7 @@ body {
 
 .feature-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2); /* Light shadow to match white text */
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
 }
 
 .feature-card h3 {
@@ -83,10 +79,9 @@ body {
     font-size: 22px;
 }
 
-/* Course Cards Styling */
 .course-cards-section {
     padding: 50px 20px;
-    background-color:black ;
+    background-color: black;
 }
 
 .course-cards {
@@ -96,29 +91,28 @@ body {
 }
 
 .course-card {
-    width: 30%; /* Adjust this based on your design */
+    width: 30%;
     margin: 15px 0;
-    text-align: center; /* Center text in each card */
+    text-align: center;
 }
 
 .course-card iframe {
-    max-width: 100%; /* Make sure the video is responsive */
+    max-width: 100%;
     height: auto;
 }
 
-
 .course-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2); /* White shadow for hover effect */
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
 }
 
 .course-card h3 {
     margin-top: 0;
-    color: #f1f1f1; /* Slightly lighter text */
+    color: #f1f1f1;
 }
 
 .course-card p {
-    color: #ccc; /* Softer white for description */
+    color: #ccc;
 }
 
 .course-card a {
@@ -129,10 +123,9 @@ body {
 
 .course-card a:hover {
     text-decoration: underline;
-    color: #66b2ff; /* Lighter blue on hover */
+    color: #66b2ff;
 }
 
-/* Testimonials Section */
 .testimonials-section {
     background-color: #111;
     padding: 40px 20px;
@@ -163,7 +156,6 @@ body {
     color: #fff;
 }
 
-/* Role-Specific Content Section */
 .role-section {
     padding: 40px;
     background-color: #222;
@@ -178,5 +170,5 @@ body {
 
 .role-section a:hover {
     text-decoration: underline;
-    color: #66b2ff; /* Lighter blue on hover */
+    color: #66b2ff;
 }

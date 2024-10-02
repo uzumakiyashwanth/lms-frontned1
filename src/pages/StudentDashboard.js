@@ -6,7 +6,7 @@ const StudentDashboard = () => {
         <div>
             <StudentNavbar />
             <h1>Welcome to Student Dashboard</h1>
-            {/* Add your course registration and other student-specific functionalities */}
+          
         </div>
     );
 };

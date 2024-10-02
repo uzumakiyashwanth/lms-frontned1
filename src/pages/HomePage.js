@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import MainNavbar from "../components/MainNavbar";
-import './HomePage.css'; // Assuming this file contains the necessary CSS for styling
-import image from '../images/image.png'; // Update this path to your image location
+import './HomePage.css';
+import image from '../images/image.png';
 
 const HomePage = () => {
-    const [role, setRole] = useState('guest'); // Default role
+    const [role, setRole] = useState('guest');
 
     useEffect(() => {
-        // Fetch user role (this can be obtained from localStorage or server session)
         const userRole = localStorage.getItem('role') || 'guest';
         setRole(userRole);
     }, []);
@@ -17,31 +16,31 @@ const HomePage = () => {
             id: 1,
             title: 'React Basics',
             description: 'Learn the fundamentals of React and build your first web app.',
-            url: 'https://www.youtube.com/embed/w7ejDZ8SWv8' // Changed to embed URL
+            url: 'https://www.youtube.com/embed/w7ejDZ8SWv8'
         },
         {
             id: 2,
             title: 'Spring Boot Essentials',
             description: 'Master the essentials of Spring Boot and create powerful backend services.',
-            url: 'https://www.youtube.com/embed/35EQXmHKZYs' // Changed to embed URL
+            url: 'https://www.youtube.com/embed/35EQXmHKZYs'
         },
         {
             id: 3,
             title: 'MySQL Database Management',
             description: 'Understand database fundamentals and manage data effectively with MySQL.',
-            url: 'https://www.youtube.com/embed/7S_tz1z_5bA' // Changed to embed URL
+            url: 'https://www.youtube.com/embed/7S_tz1z_5bA'
         },
         {
             id: 4,
             title: 'JavaScript ES6 Features',
             description: 'Dive deep into modern JavaScript and learn the latest features from ES6 and beyond.',
-            url: 'https://www.youtube.com/embed/NCwa_xi0Uuc' // Changed to embed URL
+            url: 'https://www.youtube.com/embed/NCwa_xi0Uuc'
         },
         {
             id: 5,
             title: 'Docker Basics',
             description: 'Learn how to containerize applications using Docker, an essential DevOps tool.',
-            url: 'https://www.youtube.com/embed/fqMOX6JJhGo' // Changed to embed URL
+            url: 'https://www.youtube.com/embed/fqMOX6JJhGo'
         },
     ];
 
@@ -55,11 +54,10 @@ const HomePage = () => {
                     <a href="/register" className="cta-button">Get Started</a>
                 </div>
                 <div className="hero-image">
-                    <img src={image} alt="LMS Hero" /> {/* Use the imported image */}
+                    <img src={image} alt="LMS Hero" />
                 </div>
             </div>
 
-            {/* Features Section */}
             <div className="features-section">
                 <h2>Why Choose Our LMS?</h2>
                 <div className="features">
@@ -78,7 +76,6 @@ const HomePage = () => {
                 </div>
             </div>
 
-            {/* Course Cards Section */}
             <div className="course-cards-section">
                 <h2>Explore Our Courses</h2>
                 <div className="course-cards">
@@ -100,7 +97,6 @@ const HomePage = () => {
                 </div>
             </div>
 
-            {/* Testimonials Section */}
             <div className="testimonials-section">
                 <h2>What Our Users Say</h2>
                 <div className="testimonials">
@@ -115,7 +111,6 @@ const HomePage = () => {
                 </div>
             </div>
 
-            {/* Role-specific content */}
             <div className="role-section">
                 {role === 'admin' && (
                     <div className="admin-dashboard">
@@ -124,7 +119,6 @@ const HomePage = () => {
                         <a href="/admin">Go to Admin Panel</a>
                     </div>
                 )}
-
                 {role === 'instructor' && (
                     <div className="instructor-dashboard">
                         <h2>Instructor Dashboard</h2>
@@ -132,7 +126,6 @@ const HomePage = () => {
                         <a href="/instructor">Go to Instructor Panel</a>
                     </div>
                 )}
-
                 {role === 'student' && (
                     <div className="student-dashboard">
                         <h2>Student Dashboard</h2>
@@ -140,7 +133,6 @@ const HomePage = () => {
                         <a href="/student">Go to Student Dashboard</a>
                     </div>
                 )}
-
                 {role === 'content-creator' && (
                     <div className="content-creator-dashboard">
                         <h2>Content Creator Dashboard</h2>
@@ -148,7 +140,6 @@ const HomePage = () => {
                         <a href="/content-creator">Go to Content Creator Panel</a>
                     </div>
                 )}
-
                 {role === 'guest' && (
                     <div className="guest-info">
                         <p>Please <a href="/login">log in</a> to access your dashboard.</p>

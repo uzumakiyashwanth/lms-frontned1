@@ -8,7 +8,7 @@ import AdminDashboard from "./pages/AdminDashboard";
 import InstructorDashboard from "./pages/InstructorDashboard";
 
 import BlogResources from "./pages/BlogResources";
-import ContactUs from "./pages/ContactUs";
+
 const App = () => {
     return (
         <Router>
@@ -17,7 +17,6 @@ const App = () => {
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/blog" element={<BlogResources/>}/>
-                <Route path="/contact"element={<ContactUs/>}/>
                 <Route path="/student-dashboard" element={<StudentDashboard />} />
                 <Route path="/admin-dashboard" element={<AdminDashboard />} />
                 <Route path="/instructor-dashboard" element={<InstructorDashboard />} />

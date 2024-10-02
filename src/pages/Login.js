@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import { useNavigate } from "react-router-dom";
 import MainNavbar from "../components/MainNavbar";
 import '../Page.css';
@@ -8,7 +7,7 @@ const Login = () => {
     const [formData, setFormData] = useState({
         email: "",
         password: "",
-        role: "STUDENT" // Default role for testing
+        role: "STUDENT"
     });
 
     const navigate = useNavigate();
@@ -20,20 +19,18 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Test credentials
             const testCredentials = {
                 ADMIN: { email: "admin@example.com", password: "admin123" },
                 INSTRUCTOR: { email: "instructor@example.com", password: "instructor123" },
                 STUDENT: { email: "student@example.com", password: "student123" },
             };
 
-            // Check if the entered credentials match any of the test credentials
             const { email, password, role } = formData;
             if (
                 testCredentials[role].email === email &&
                 testCredentials[role].password === password
             ) {
-                const response = { data: `Role: ${role}` }; // Mock response
+                const response = { data: `Role: ${role}` };
                 const userRole = response.data.split("Role: ")[1];
 
                 if (userRole === "STUDENT") {
@@ -54,7 +51,7 @@ const Login = () => {
     return (
         <div>
             <MainNavbar />
-            <div className="page-container"> {/* Added for styling */}
+            <div className="page-container">
                 <h2>Login</h2>
                 <form onSubmit={handleSubmit}>
                     <label>Email:</label>
@@ -65,7 +62,6 @@ const Login = () => {
                         onChange={handleChange}
                         required
                     />
-
                     <label>Password:</label>
                     <input
                         type="password"
@@ -74,14 +70,12 @@ const Login = () => {
                         onChange={handleChange}
                         required
                     />
-
                     <label>Role:</label>
                     <select name="role" value={formData.role} onChange={handleChange}>
                         <option value="STUDENT">Student</option>
                         <option value="INSTRUCTOR">Instructor</option>
                         <option value="ADMIN">Admin</option>
                     </select>
-
                     <button type="submit">Login</button>
                 </form>
             </div>

@@ -1,13 +1,13 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { Link, useNavigate } from "react-router-dom"; 
 import '../App.css'; 
 import '../Navbar.css';
 
 const MainNavbar = () => {
-    const navigate = useNavigate(); // Initialize useNavigate
+    const navigate = useNavigate(); 
 
     const handleRegisterForCourse = () => {
-        navigate('/Register'); // Navigate to the login page on button click
+        navigate('/Register'); 
     };
 
     return (
@@ -17,7 +17,7 @@ const MainNavbar = () => {
                 <Link to="/blog">Blog/Resources</Link>
                 <Link to="/register">Register</Link>
                 <Link to="/login">Login</Link>
-                <Link to="/contact">Contact Us</Link>
+              
                 
             </div>
             <button onClick={handleRegisterForCourse} className="register-button">

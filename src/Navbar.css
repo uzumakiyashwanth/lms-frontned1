@@ -1,20 +1,18 @@
-/* Navbar.css */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #3e5b99; /* Updated to a softer blue */
+    background-color: #3e5b99;
     padding: 15px 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 8px;
     transition: background-color 0.3s;
 }
 
 nav:hover {
-    background-color: #4a90e2; /* Dark Blue on hover */
+    background-color: #4a90e2;
 }
 
-/* Aligns items to the left */
 .nav-left {
     display: flex;
     align-items: center;
@@ -23,10 +21,10 @@ nav:hover {
 nav a {
     color: white;
     text-decoration: none;
-    margin: 0 15px; /* Increased margin between links */
-    font-weight: 600; /* Slightly less bold */
-    position: relative; /* To create an underline effect */
-    padding: 5px 0; /* Padding for the link */
+    margin: 0 15px;
+    font-weight: 600;
+    position: relative;
+    padding: 5px 0;
 }
 
 nav a::after {
@@ -34,20 +32,20 @@ nav a::after {
     display: block;
     width: 0;
     height: 2px;
-    background: #f4f4f4; /* Light Gray */
+    background: #f4f4f4;
     transition: width 0.3s;
     position: absolute;
     left: 50%;
-    bottom: -5px; /* Positioned under the text */
+    bottom: -5px;
     transform: translateX(-50%);
 }
 
 nav a:hover::after {
-    width: 100%; /* Full underline on hover */
+    width: 100%;
 }
 
 nav button {
-    background-color: #d9534f; /* Bootstrap Danger Color */
+    background-color: #d9534f;
     color: white;
     border: none;
     padding: 10px 15px;
@@ -58,13 +56,12 @@ nav button {
 }
 
 nav button:hover {
-    background-color: #c9302c; /* Darker Red */
-    transform: scale(1.05); /* Slightly enlarge button on hover */
+    background-color: #c9302c;
+    transform: scale(1.05);
 }
 
-/* Register Button Style */
 .register-button {
-    background-color: #5cb85c; /* Green */
+    background-color: #5cb85c;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -76,6 +73,6 @@ nav button:hover {
 }
 
 .register-button:hover {
-    background-color: #4cae4c; /* Darker Green */
-    transform: scale(1.05); /* Slightly enlarge button on hover */
+    background-color: #4cae4c;
+    transform: scale(1.05);
 }

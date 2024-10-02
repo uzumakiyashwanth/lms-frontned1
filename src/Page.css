@@ -45,10 +45,10 @@ form button {
 }
 
 form button:hover {
-    background-color: #3a7bc1; /* Darker Blue */
+    background-color: #3a7bc1; 
 }
 
-/* Additional styles to ensure form elements are visually appealing */
+
 h2 {
     text-align: center;
     color: #333;

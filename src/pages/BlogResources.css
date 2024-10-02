@@ -1,55 +1,47 @@
-/* BlogResources.css */
-
 body {
-    background-color: #f5f5f5; /* Light gray background */
-    font-family: Arial, sans-serif; /* Basic font for readability */
+    background-color: #a55e5e;
+    font-family: Arial, sans-serif;
 }
 
-/* Blog Resources container styling */
 .blog-resources {
-    max-width: 800px; /* Limit the width of the blog section */
-    margin: 40px auto; /* Center the section with margin */
-    padding: 20px; /* Inner padding for the container */
-    background-color: white; /* White background for the content */
-    border-radius: 5px; /* Rounded corners for the box */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Heading styles */
 .blog-resources h1 {
-    text-align: center; /* Center the main heading */
-    color: #333; /* Dark gray color for headings */
+    text-align: center;
+    color: #333;
 }
 
 .blog-resources h2 {
-    margin-top: 30px; /* Space above secondary headings */
-    color: #555; /* Medium gray color for secondary headings */
+    margin-top: 30px;
+    color: #555;
 }
 
-/* Paragraph styling */
 .blog-resources p {
-    line-height: 1.6; /* Improve readability with line height */
-    color: #666; /* Light gray color for paragraph text */
+    line-height: 1.6;
+    color: #666;
 }
 
-/* List styling */
 .blog-resources ul {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
+    list-style-type: none;
+    padding: 0;
 }
 
-/* List item styling */
 .blog-resources li {
-    margin-bottom: 10px; /* Space between list items */
+    margin-bottom: 10px;
 }
 
-/* Link styling */
 .blog-resources a {
-    text-decoration: none; /* Remove underline from links */
-    color: #007bff; /* Blue color for links */
+    text-decoration: none;
+    color: #007bff;
 }
 
 .blog-resources a:hover {
-    text-decoration: underline; /* Underline on hover for links */
-    color: #0056b3; /* Darker blue color on hover */
+    text-decoration: underline;
+    color: #0056b3;
 }

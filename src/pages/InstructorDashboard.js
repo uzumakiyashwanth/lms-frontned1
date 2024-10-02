@@ -6,7 +6,7 @@ const InstructorDashboard = () => {
         <div>
             <AdminNavbar />
             <h1>Welcome to Instructor Dashboard</h1>
-            {/* Add instructor-specific functionalities */}
+            
         </div>
     );
 };

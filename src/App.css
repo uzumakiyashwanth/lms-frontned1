@@ -1,4 +1,4 @@
-/* App.css */
+
 * {
   margin: 0;
   padding: 0;
@@ -7,78 +7,78 @@
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: #ffffff; /* Light background color for readability */
-  color: #333; /* Default text color */
-  line-height: 1.6; /* Improved line height for better readability */
+  background-color: #ffffff;
+  color: #333; 
+  line-height: 1.6; 
 }
 
 h1, h2, h3 {
-  margin: 20px 0; /* Consistent margins for headings */
-  font-weight: normal; /* More subtle heading styles */
+  margin: 20px 0; 
+  font-weight: normal; 
 }
 
 h1 {
-  font-size: 2.5rem; /* Larger font size for main headings */
-  color: #4a90e2; /* A color that matches your navbar */
+  font-size: 2.5rem; 
+  color: #4a90e2; 
 }
 
 h2 {
-  font-size: 2rem; /* Slightly smaller for subheadings */
-  color: #333; /* Default color for subheadings */
+  font-size: 2rem; 
+  color: #333; 
 }
 
 h3 {
-  font-size: 1.5rem; /* Smaller size for tertiary headings */
-  color: #666; /* A softer color for less emphasis */
+  font-size: 1.5rem; 
+  color: #666; 
 }
 
 p {
-  margin-bottom: 15px; /* Spacing for paragraphs */
-  line-height: 1.8; /* Increased line height for easier reading */
+  margin-bottom: 15px; 
+  line-height: 1.8; 
 }
 
 .container {
-  max-width: 1200px; /* Set a max width for the main content area */
-  margin: auto; /* Center the container */
-  padding: 20px; /* Add padding for spacing */
-  background-color: white; /* White background for the content area */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  max-width: 1200px; 
+  margin: auto; 
+  padding: 20px; 
+  background-color: white; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
 }
 
 button {
-  padding: 10px 15px; /* Add some padding for buttons */
-  border: none; /* Remove default border */
-  border-radius: 4px; /* Rounded corners for buttons */
-  font-weight: bold; /* Bold text for buttons */
-  cursor: pointer; /* Pointer cursor for buttons */
-  transition: background-color 0.3s, transform 0.2s; /* Smooth transition for hover effects */
+  padding: 10px 15px;
+  border: none; 
+  border-radius: 4px; 
+  font-weight: bold; 
+  cursor: pointer; 
+  transition: background-color 0.3s, transform 0.2s; 
 }
 
 button:hover {
-  background-color: #3a7bc1; /* Darker blue on hover */
-  transform: scale(1.05); /* Slightly enlarge button on hover */
+  background-color: #3a7bc1; 
+  transform: scale(1.05); 
 }
 
-/* Responsive styles */
+
 @media (max-width: 768px) {
   body {
-      padding: 10px; /* Add padding for smaller screens */
+      padding: 10px; 
   }
 
   .container {
-      padding: 15px; /* Reduce padding on smaller screens */
+      padding: 15px; 
   }
 
   h1 {
-      font-size: 2rem; /* Responsive heading size */
+      font-size: 2rem; 
   }
 
   h2 {
-      font-size: 1.75rem; /* Responsive subheading size */
+      font-size: 1.75rem; 
   }
 
   h3 {
-      font-size: 1.25rem; /* Responsive tertiary heading size */
+      font-size: 1.25rem; 
   }
 }
