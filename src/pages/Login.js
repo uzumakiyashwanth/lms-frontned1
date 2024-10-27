@@ -23,6 +23,7 @@ const Login = () => {
                 ADMIN: { email: "admin@example.com", password: "admin123" },
                 INSTRUCTOR: { email: "instructor@example.com", password: "instructor123" },
                 STUDENT: { email: "student@example.com", password: "student123" },
+                CONTENTCREATOR:{ email: "contentcreator@example.com", password: "content" },
             };
 
             const { email, password, role } = formData;
@@ -39,6 +40,9 @@ const Login = () => {
                     navigate("/instructor-dashboard");
                 } else if (userRole === "ADMIN") {
                     navigate("/admin-dashboard");
+                }
+                else if (userRole === "CONTENTCREATOR") {
+                    navigate("/content-creator");
                 }
             } else {
                 alert("Invalid credentials");
@@ -75,6 +79,7 @@ const Login = () => {
                         <option value="STUDENT">Student</option>
                         <option value="INSTRUCTOR">Instructor</option>
                         <option value="ADMIN">Admin</option>
+                        <option value="CONTENTCREATOR">Content Creator</option>
                     </select>
                     <button type="submit">Login</button>
                 </form>
