@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MainNavbar from "../components/MainNavbar";
 import "../cssfiles/Login.css";
+import { ToastContainer, toast } from 'react-toastify';  // Import Toastify components
+import 'react-toastify/dist/ReactToastify.css';  // Import Toastify CSS
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -36,6 +38,12 @@ const Login = () => {
                 localStorage.setItem("role", role);  // Store the role in localStorage
                 console.log("Redirecting to", role);  // Log the redirection
 
+                // Show success toast
+                toast.success(`Welcome, ${role}! Redirecting...`, {
+                    position: "top-right",  // Use the string for position
+                    autoClose: 3000,
+                });
+
                 // Redirect based on role
                 if (role === "STUDENT") {
                     navigate("/student-dashboard");
@@ -45,10 +53,16 @@ const Login = () => {
                     navigate("/admin-dashboard");
                 }
             } else {
-                alert("Invalid credentials");
+                toast.error("Invalid credentials", {
+                    position: "top-right",  // Use the string for position
+                    autoClose: 3000,
+                });
             }
         } catch (error) {
-            alert("Error occurred during login");
+            toast.error("Error occurred during login", {
+                position: "top-right",  // Use the string for position
+                autoClose: 3000,
+            });
         }
     };
 
@@ -91,6 +105,8 @@ const Login = () => {
                     </form>
                 </div>
             </div>
+            {/* Toast Container to display toasts */}
+            <ToastContainer />
         </div>
     );
 };

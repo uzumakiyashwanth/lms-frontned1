@@ -131,16 +131,91 @@ const ManageCourses = () => {
 };
 
 const styles = {
-    container: { backgroundColor: '#333', color: 'white', padding: '20px', borderRadius: '8px', margin: '20px' },
-    header: { textAlign: 'center', color: '#f0f0f0' },
-    formContainer: { marginTop: '20px', marginBottom: '20px' },
-    input: { margin: '5px', padding: '10px', borderRadius: '4px', border: '1px solid #fff', width: '250px', backgroundColor: '#444', color: '#fff' },
-    button: { margin: '5px', padding: '10px 15px', borderRadius: '4px', border: 'none', backgroundColor: '#2980b9', color: 'white', cursor: 'pointer' },
-    table: { width: '100%', borderCollapse: 'collapse', marginTop: '20px' },
-    tableHeader: { padding: '10px', borderBottom: '1px solid #ddd', backgroundColor: '#444', color: '#fff', textAlign: 'left' },
-    tableCell: { padding: '10px', borderBottom: '1px solid #ddd', color: '#fff' },
-    editButton: { marginRight: '5px', padding: '5px 10px', borderRadius: '4px', border: 'none', backgroundColor: '#3498db', color: 'white', cursor: 'pointer' },
-    deleteButton: { padding: '5px 10px', borderRadius: '4px', border: 'none', backgroundColor: '#e74c3c', color: 'white', cursor: 'pointer' },
+    container: {
+        backgroundColor: '#333',
+        color: 'white',
+        padding: '20px',
+        borderRadius: '8px',
+        margin: '20px',
+    },
+    header: {
+        textAlign: 'center',
+        color: '#f0f0f0',
+        fontSize: '24px',
+    },
+    formContainer: {
+        marginTop: '20px',
+        marginBottom: '20px',
+    },
+    input: {
+        margin: '5px',
+        padding: '10px',
+        borderRadius: '4px',
+        border: '1px solid #fff',
+        width: '250px',
+        backgroundColor: '#444',
+        color: '#fff',
+    },
+    button: {
+        margin: '5px',
+        padding: '10px 15px',
+        borderRadius: '4px',
+        border: 'none',
+        backgroundColor: '#2980b9',
+        color: 'white',
+        cursor: 'pointer',
+    },
+    table: {
+        width: '100%',
+        borderCollapse: 'collapse',
+        marginTop: '20px',
+    },
+    tableHeader: {
+        padding: '12px 15px',
+        borderBottom: '2px solid #ddd',
+        backgroundColor: '#444',
+        color: '#fff',
+        textAlign: 'left',
+        fontWeight: 'bold',
+    },
+    tableCell: {
+        padding: '12px 15px',
+        borderBottom: '1px solid #ddd',
+        color: '#fff',
+        textAlign: 'left',
+    },
+    tableRow: {
+        transition: 'background-color 0.3s ease',
+    },
+    tableRowHover: {
+        backgroundColor: '#555',
+    },
+    editButton: {
+        marginRight: '5px',
+        padding: '6px 12px',
+        borderRadius: '4px',
+        border: 'none',
+        backgroundColor: '#3498db',
+        color: 'white',
+        cursor: 'pointer',
+        transition: 'background-color 0.2s ease',
+    },
+    deleteButton: {
+        padding: '6px 12px',
+        borderRadius: '4px',
+        border: 'none',
+        backgroundColor: '#e74c3c',
+        color: 'white',
+        cursor: 'pointer',
+        transition: 'background-color 0.2s ease',
+    },
+    editButtonHover: {
+        backgroundColor: '#2980b9',
+    },
+    deleteButtonHover: {
+        backgroundColor: '#c0392b',
+    },
 };
+
 
 export default ManageCourses;

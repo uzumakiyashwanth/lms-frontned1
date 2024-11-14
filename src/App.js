@@ -11,6 +11,7 @@ import AdminViewStudents from "./pages/Adminviewstudents";
 import ManageCourses from "./pages/ManageCourses";
 import AdminNavbar from "./components/AdminNavbar";
 import AdminviewInstructors from "./pages/AdminviewInstructors";
+import ContactForm from "./pages/ContactForm";
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
                 <Route path="/admin-view-students" element={<AdminViewStudents />} />
                 <Route path="/admin-manage-courses" element={<ManageCourses />} /> 
                 <Route path="/admin-navbar" element={<AdminNavbar/>}/>
+                <Route path="/contact-us" element={<ContactForm/>}/>
             </Routes>
         </Router>
     );

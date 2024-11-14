@@ -100,7 +100,7 @@ const AdminviewInstructors = () => {
         <div>
             <AdminNavbar />
             <div style={styles.container}>
-                <h2 style={styles.header}>Add/Update Instructor</h2>
+                <h2 style={styles.header}>Register Instructor</h2>
 
                 {/* Add/Update Instructor Form */}
                 <div style={styles.formContainer}>
@@ -159,26 +159,26 @@ const AdminviewInstructors = () => {
                 </div>
 
                 {/* Display all instructors in a table */}
-                <h2 style={styles.header}>Instructor List</h2>
+                <h2 style={styles.header}>Instructors List</h2>
                 <table style={styles.table}>
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Phone Number</th>
-                            <th>Department</th>
-                            <th>Qualifications</th>
-                            <th>Actions</th>
+                            <th style={styles.th}>Name</th>
+                            <th style={styles.th}>Email</th>
+                            <th style={styles.th}>Phone Number</th>
+                            <th style={styles.th}>Department</th>
+                            <th style={styles.th}>Qualifications</th>
+                            <th style={styles.th}>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {instructors.map((instructor) => (
                             <tr key={instructor.id} style={styles.row}>
-                                <td>{instructor.name}</td>
-                                <td>{instructor.email}</td>
-                                <td>{instructor.phoneNumber}</td>
-                                <td>{instructor.department}</td>
-                                <td>{instructor.qualifications}</td>
+                                <td style={styles.td}>{instructor.name}</td>
+                                <td style={styles.td}>{instructor.email}</td>
+                                <td style={styles.td}>{instructor.phoneNumber}</td>
+                                <td style={styles.td}>{instructor.department}</td>
+                                <td style={styles.td}>{instructor.qualifications}</td>
                                 <td style={styles.actions}>
                                     <button
                                         style={styles.updateButton}
@@ -201,7 +201,6 @@ const AdminviewInstructors = () => {
         </div>
     );
 };
-
 const styles = {
     container: { backgroundColor: '#333', color: 'white', padding: '20px', borderRadius: '8px', margin: '20px' },
     header: { textAlign: 'center', color: '#f0f0f0' },
@@ -225,9 +224,9 @@ const styles = {
         border: '1px solid #ccc',  // Add border for each table cell
     },
     row: { transition: 'background-color 0.3s' },
-    actions: { display: 'flex', justifyContent: 'space-around' },
-    updateButton: { backgroundColor: '#f39c12', color: 'white', border: 'none', padding: '5px 10px', cursor: 'pointer' },
-    deleteButton: { backgroundColor: '#e74c3c', color: 'white', border: 'none', padding: '5px 10px', cursor: 'pointer' },
+    actions: { padding: '5px', border: '1px solid #ccc' },  // Make actions column behave like the other cells
+    updateButton: { backgroundColor: '#f39c12', color: 'white', border: '1px solid #ccc', padding: '5px 10px', cursor: 'pointer' },
+    deleteButton: { backgroundColor: '#e74c3c', color: 'white', border: '1px solid #ccc', padding: '5px 10px', cursor: 'pointer' },
     // Hover effect for table rows
     rowHover: {
         backgroundColor: '#555'

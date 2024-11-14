@@ -13,34 +13,38 @@ body {
 }
 
 /* Hero Section */
+/* Hero Section */
 .hero-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 80px 10%;
+    padding: 100px 8%;
     background: linear-gradient(135deg, #ffffff 0%, #025fff 100%);
     color: white;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    margin-bottom: 50px;
     animation: fadeIn 3s ease-in-out;
 }
 
 .hero-text {
-    max-width: 50%;
+    max-width: 45%;
+    text-align: left;
 }
 
 .hero-text h1 {
-    font-size: 50px;
+    font-size: 48px;
     margin-bottom: 20px;
+    line-height: 1.2;
     font-weight: bold;
-    animation: slideInLeft 1s ease-out;
+    color: #ffffff;
+    animation: slideInLeft 2s ease-out;
 }
 
 .hero-text p {
-    font-size: 20px;
+    font-size: 22px;
     margin-bottom: 30px;
-    animation: fadeInText 2s ease-in-out;
+    color: #000000;
+    animation: fadeInText 4s ease-in-out;
 }
 
 .cta-button {
@@ -58,17 +62,36 @@ body {
 }
 
 .hero-image img {
-    width: 80%;
-    max-width: 100%;
+    width: 100%;
+    max-width: 500px;
     border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    animation: fadeInRight 3s ease-in-out;
+    animation: fadeInRight 2s ease-in-out;
 }
+
+/* Animations */
+@keyframes fadeInText {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    0% { transform: translateX(-50%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInRight {
+    0% { transform: translateX(50%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
 
 /* Features Section */
 .features-section {
     text-align: center;
     padding: 50px;
+    background-color: #000000;
+    margin-top: 0px;
 }
 
 .features-section h2 {
@@ -224,31 +247,10 @@ body {
 }
 
 /* Animations */
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
 
 
-@keyframes fadeInUp {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
 
-@keyframes fadeInText {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
 
-@keyframes slideInLeft {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(0); }
-}
-
-@keyframes fadeInRight {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(0); }
-}
 
 /* Footer Styling */
 /* Footer Styling */

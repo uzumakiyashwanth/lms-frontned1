@@ -15,7 +15,7 @@ const MainNavbar = () => {
             <div className="nav-left">
                 <Link to="/">Home</Link>
                 <Link to="/blog">Blog/Resources</Link>
-               
+               <Link to="/contact-us">Contact Us</Link>
                 <Link to="/login">Login</Link>
               
                 
