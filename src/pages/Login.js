@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MainNavbar from "../components/MainNavbar";
 import "../cssfiles/Login.css";
-import { ToastContainer, toast } from 'react-toastify';  // Import Toastify components
-import 'react-toastify/dist/ReactToastify.css';  // Import Toastify CSS
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -11,58 +12,78 @@ const Login = () => {
         password: "",
         role: "STUDENT"
     });
-
     const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    // Function to validate email format
+    const validateEmail = (email) => {
+        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return regex.test(email);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);  // Log the form data to debug
-        
+        const { email, password, role } = formData;
+
+        // Validation checks
+        if (!email || !validateEmail(email)) {
+            toast.error("Please enter a valid email address.");
+            return;
+        }
+        if (!password) {
+            toast.error("Password is required.");
+            return;
+        }
+        if (!role) {
+            toast.error("Please select a role.");
+            return;
+        }
+
         try {
-            const testCredentials = {
-                ADMIN: { email: "admin@example.com", password: "admin123" },
-                INSTRUCTOR: { email: "instructor@example.com", password: "instructor123" },
-                STUDENT: { email: "student@example.com", password: "student123" },
-            };
+            // Check for the admin role with hardcoded credentials
+            if (role === "ADMIN" && email === "admin@example.com" && password === "admin123") {
+                localStorage.setItem("role", role);
+                toast.success("Welcome, Admin!");
+                navigate("/admin-dashboard");
+            } else if (role === "STUDENT") {
+                // Fetch student data from the backend
+                const response = await axios.get("http://localhost:8080/getregisterationdata");
+                const users = response.data;
+                const user = users.find(
+                    (user) => user.email === email && user.password === password && user.role === role
+                );
 
-            const { email, password, role } = formData;
-
-            if (
-                testCredentials[role].email === email &&
-                testCredentials[role].password === password
-            ) {
-                localStorage.setItem("role", role);  // Store the role in localStorage
-                console.log("Redirecting to", role);  // Log the redirection
-
-                // Show success toast
-                toast.success(`Welcome, ${role}! Redirecting...`, {
-                    position: "top-right",  // Use the string for position
-                    autoClose: 3000,
-                });
-
-                // Redirect based on role
-                if (role === "STUDENT") {
+                if (user) {
+                    localStorage.setItem("role", user.role);
+                    localStorage.setItem("userName", user.name);
+                    toast.success(`Welcome, ${user.name}!`);
                     navigate("/student-dashboard");
-                } else if (role === "INSTRUCTOR") {
-                    navigate("/instructor-dashboard");
-                } else if (role === "ADMIN") {
-                    navigate("/admin-dashboard");
+                } else {
+                    toast.error("Invalid student credentials or role mismatch");
                 }
-            } else {
-                toast.error("Invalid credentials", {
-                    position: "top-right",  // Use the string for position
-                    autoClose: 3000,
-                });
+            } else if (role === "INSTRUCTOR") {
+                // Fetch instructor data using getAllInstructors
+                const response = await axios.get("http://localhost:8080/instructors");
+                const instructors = response.data;
+                const instructor = instructors.find(
+                    (instructor) => instructor.email === email && instructor.password === password && instructor.role === role
+                );
+
+                if (instructor) {
+                    localStorage.setItem("role", instructor.role);
+                    localStorage.setItem("userName", instructor.name);
+                    toast.success(`Welcome, ${instructor.name}!`);
+                    navigate("/instructor-dashboard");
+                } else {
+                    toast.error("Invalid instructor credentials or role mismatch");
+                }
             }
         } catch (error) {
-            toast.error("Error occurred during login", {
-                position: "top-right",  // Use the string for position
-                autoClose: 3000,
-            });
+            console.error("Login error:", error);
+            toast.error("An error occurred. Please try again.");
         }
     };
 
@@ -105,7 +126,6 @@ const Login = () => {
                     </form>
                 </div>
             </div>
-            {/* Toast Container to display toasts */}
             <ToastContainer />
         </div>
     );

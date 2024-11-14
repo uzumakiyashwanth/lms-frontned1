@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../Navbar.css';
 
-const StudentNavbar = () => {
+const InstructorNavbar = () => {
     const navigate = useNavigate();
     const userName = localStorage.getItem("userName"); // Get the logged-in user's name
 
@@ -17,8 +17,8 @@ const StudentNavbar = () => {
     return (
         <nav className="navbar">
             <div className="nav-left">
-                <Link to="/student-dashboard">Dashboard</Link>
-                <Link to="/student-register-course">Register for Course</Link>
+                <Link to="/instructor-dashboard">Dashboard</Link>
+                <Link to="/instructor-courses">Manage Courses</Link>
             </div>
             <div className="profile-section">
                 <div className="profile-icon" onClick={() => document.getElementById('profile-dropdown').classList.toggle('show')}>
@@ -33,4 +33,4 @@ const StudentNavbar = () => {
     );
 };
 
-export default StudentNavbar;
+export default InstructorNavbar;

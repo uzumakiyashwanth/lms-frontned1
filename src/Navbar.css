@@ -7,6 +7,7 @@ nav {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
     transition: background-color 0.3s;
+    position: relative; /* Allow absolute positioning of profile icon */
 }
 
 nav:hover {
@@ -75,4 +76,75 @@ nav button:hover {
 .register-button:hover {
     background-color: #4cae4c;
     transform: scale(1.05);
+}
+
+/* Profile icon and dropdown styles */
+.profile-section {
+    position: absolute; /* Position it absolutely within the navbar */
+    right: 30px; /* Adjust this value to position it closer to the right edge */
+    top: 50%; /* Vertically center the icon */
+    transform: translateY(-50%); /* Adjust to exact center */
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s;
+}
+
+.profile-icon:hover {
+    background-color: #0056b3;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown-content button {
+    color: white;
+    background-color: transparent;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content button:hover {
+    background-color: #575757;
+}
+
+/* Show the dropdown when clicked */
+.profile-icon:active + .dropdown-content,
+.dropdown-content.show {
+    display: block;
+}
+
+/* Toast styles */
+.Toastify__toast-container {
+    top: 10px;
+    right: 10px;
+}
+
+.Toastify__toast {
+    background-color: #4caf50; /* Green for success */
+    color: white;
+    font-weight: bold;
 }

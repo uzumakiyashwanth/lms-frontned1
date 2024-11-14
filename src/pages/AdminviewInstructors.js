@@ -13,6 +13,7 @@ const AdminviewInstructors = () => {
         qualifications: '',
         description: '',
         profilePictureUrl: '',
+        password: '',  // Add password field
         isActive: true
     });
 
@@ -43,6 +44,7 @@ const AdminviewInstructors = () => {
                 qualifications: '',
                 description: '',
                 profilePictureUrl: '',
+                password: '', // Clear password after submission
                 isActive: true
             });
             fetchInstructors(); // Reload instructors after adding
@@ -78,6 +80,7 @@ const AdminviewInstructors = () => {
                 qualifications: '',
                 description: '',
                 profilePictureUrl: '',
+                password: '', // Clear password after update
                 isActive: true
             });
             alert('Instructor updated successfully');
@@ -153,6 +156,13 @@ const AdminviewInstructors = () => {
                         value={newInstructor.profilePictureUrl}
                         onChange={(e) => setNewInstructor({ ...newInstructor, profilePictureUrl: e.target.value })}
                     />
+                    <input
+                        style={styles.input}
+                        type="password"  // Add password input field
+                        placeholder="Password"
+                        value={newInstructor.password}
+                        onChange={(e) => setNewInstructor({ ...newInstructor, password: e.target.value })}
+                    />
                     <button style={styles.button} onClick={newInstructor.id ? () => handleUpdateInstructor(newInstructor.id) : handleAddInstructor}>
                         {newInstructor.id ? 'Update Instructor' : 'Add Instructor'}
                     </button>
@@ -201,6 +211,7 @@ const AdminviewInstructors = () => {
         </div>
     );
 };
+
 const styles = {
     container: { backgroundColor: '#333', color: 'white', padding: '20px', borderRadius: '8px', margin: '20px' },
     header: { textAlign: 'center', color: '#f0f0f0' },
@@ -227,12 +238,6 @@ const styles = {
     actions: { padding: '5px', border: '1px solid #ccc' },  // Make actions column behave like the other cells
     updateButton: { backgroundColor: '#f39c12', color: 'white', border: '1px solid #ccc', padding: '5px 10px', cursor: 'pointer' },
     deleteButton: { backgroundColor: '#e74c3c', color: 'white', border: '1px solid #ccc', padding: '5px 10px', cursor: 'pointer' },
-    // Hover effect for table rows
-    rowHover: {
-        backgroundColor: '#555'
-    }
 };
-
-
 
 export default AdminviewInstructors;
