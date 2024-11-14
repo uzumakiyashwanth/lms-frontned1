@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MainNavbar from "../components/MainNavbar";
-import '../Page.css';
+import "../cssfiles/Login.css";
 
 const Login = () => {
     const [formData, setFormData] = useState({
@@ -18,31 +18,31 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(formData);  // Log the form data to debug
+        
         try {
             const testCredentials = {
                 ADMIN: { email: "admin@example.com", password: "admin123" },
                 INSTRUCTOR: { email: "instructor@example.com", password: "instructor123" },
                 STUDENT: { email: "student@example.com", password: "student123" },
-                CONTENTCREATOR:{ email: "contentcreator@example.com", password: "content" },
             };
 
             const { email, password, role } = formData;
+
             if (
                 testCredentials[role].email === email &&
                 testCredentials[role].password === password
             ) {
-                const response = { data: `Role: ${role}` };
-                const userRole = response.data.split("Role: ")[1];
+                localStorage.setItem("role", role);  // Store the role in localStorage
+                console.log("Redirecting to", role);  // Log the redirection
 
-                if (userRole === "STUDENT") {
+                // Redirect based on role
+                if (role === "STUDENT") {
                     navigate("/student-dashboard");
-                } else if (userRole === "INSTRUCTOR") {
+                } else if (role === "INSTRUCTOR") {
                     navigate("/instructor-dashboard");
-                } else if (userRole === "ADMIN") {
+                } else if (role === "ADMIN") {
                     navigate("/admin-dashboard");
-                }
-                else if (userRole === "CONTENTCREATOR") {
-                    navigate("/content-creator");
                 }
             } else {
                 alert("Invalid credentials");
@@ -55,34 +55,41 @@ const Login = () => {
     return (
         <div>
             <MainNavbar />
-            <div className="page-container">
-                <h2>Login</h2>
-                <form onSubmit={handleSubmit}>
-                    <label>Email:</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                    />
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
-                    <label>Role:</label>
-                    <select name="role" value={formData.role} onChange={handleChange}>
-                        <option value="STUDENT">Student</option>
-                        <option value="INSTRUCTOR">Instructor</option>
-                        <option value="ADMIN">Admin</option>
-                        <option value="CONTENTCREATOR">Content Creator</option>
-                    </select>
-                    <button type="submit">Login</button>
-                </form>
+            <div className="login-container">
+                <div className="image-section">
+                    <img src="path_to_your_image" alt="Login illustration" />
+                </div>
+                <div className="form-section">
+                    <h2>Login</h2>
+                    <center><h3>Explore the Content</h3></center>
+                    <form onSubmit={handleSubmit}>
+                        <label>Email:</label>
+                        <input
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            required
+                            placeholder="Email"
+                        />
+                        <label>Password:</label>
+                        <input
+                            type="password"
+                            name="password"
+                            value={formData.password}
+                            onChange={handleChange}
+                            required
+                            placeholder="Password"
+                        />
+                        <label>Role:</label>
+                        <select name="role" value={formData.role} onChange={handleChange}>
+                            <option value="STUDENT">Student</option>
+                            <option value="INSTRUCTOR">Instructor</option>
+                            <option value="ADMIN">Admin</option>
+                        </select>
+                        <button type="submit">Login</button>
+                    </form>
+                </div>
             </div>
         </div>
     );

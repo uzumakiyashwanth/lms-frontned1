@@ -8,8 +8,10 @@ import AdminDashboard from "./pages/AdminDashboard";
 import InstructorDashboard from "./pages/InstructorDashboard";
 import BlogResources from "./pages/BlogResources";
 import AdminViewStudents from "./pages/Adminviewstudents";
+import ManageCourses from "./pages/ManageCourses";
+import AdminNavbar from "./components/AdminNavbar";
+import AdminviewInstructors from "./pages/AdminviewInstructors";
 
- // Ensure the path is correct
 
 const App = () => {
     return (
@@ -21,8 +23,11 @@ const App = () => {
                 <Route path="/blog" element={<BlogResources />} />
                 <Route path="/student-dashboard" element={<StudentDashboard />} />
                 <Route path="/admin-dashboard" element={<AdminDashboard />} />
+                <Route path="/admin-view-instructors" element={<AdminviewInstructors />} />
                 <Route path="/instructor-dashboard" element={<InstructorDashboard />} />
                 <Route path="/admin-view-students" element={<AdminViewStudents />} />
+                <Route path="/admin-manage-courses" element={<ManageCourses />} /> 
+                <Route path="/admin-navbar" element={<AdminNavbar/>}/>
             </Routes>
         </Router>
     );

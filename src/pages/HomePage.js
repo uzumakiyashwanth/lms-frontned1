@@ -1,15 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import MainNavbar from "../components/MainNavbar";
 import './HomePage.css';
 import image from '../images/image.png';
 
-const HomePage = () => {
-    const [role, setRole] = useState('guest');
 
-    useEffect(() => {
-        const userRole = localStorage.getItem('role') || 'guest';
-        setRole(userRole);
-    }, []);
+const HomePage = () => {
+   
 
     const staticCourses = [
         {
@@ -42,6 +38,12 @@ const HomePage = () => {
             description: 'Learn how to containerize applications using Docker, an essential DevOps tool.',
             url: 'https://www.youtube.com/embed/fqMOX6JJhGo'
         },
+        {
+            id: 6,
+            title: 'Docker Basics',
+            description: 'Learn how to containerize applications using Docker, an essential DevOps tool.',
+            url: 'https://www.youtube.com/embed/fqMOX6JJhGo'
+        },
     ];
 
     return (
@@ -51,7 +53,7 @@ const HomePage = () => {
                 <div className="hero-text">
                     <h1>Welcome to the Learning Management System</h1>
                     <p>Your gateway to an advanced learning experience. Manage courses, track progress, and more!</p>
-                    <a href="/register" className="cta-button">Get Started</a>
+                    <a href="/login" className="cta-button">Get Started</a>
                 </div>
                 <div className="hero-image">
                     <img src={image} alt="LMS Hero" />
@@ -111,42 +113,15 @@ const HomePage = () => {
                 </div>
             </div>
 
-            <div className="role-section">
-                {role === 'admin' && (
-                    <div className="admin-dashboard">
-                        <h2>Admin Dashboard</h2>
-                        <p>Manage users, courses, and platform settings.</p>
-                        <a href="/admin">Go to Admin Panel</a>
-                    </div>
-                )}
-                {role === 'instructor' && (
-                    <div className="instructor-dashboard">
-                        <h2>Instructor Dashboard</h2>
-                        <p>Create and manage your courses, and grade student assignments.</p>
-                        <a href="/instructor">Go to Instructor Panel</a>
-                    </div>
-                )}
-                {role === 'student' && (
-                    <div className="student-dashboard">
-                        <h2>Student Dashboard</h2>
-                        <p>Enroll in courses, track your progress, and submit assignments.</p>
-                        <a href="/student">Go to Student Dashboard</a>
-                    </div>
-                )}
-                {role === 'content-creator' && (
-                    <div className="content-creator-dashboard">
-                        <h2>Content Creator Dashboard</h2>
-                        <p>Create educational materials and update course content.</p>
-                        <a href="/content-creator">Go to Content Creator Panel</a>
-                    </div>
-                )}
-                {role === 'guest' && (
-                    <div className="guest-info">
-                        <p>Please <a href="/login">log in</a> to access your dashboard.</p>
-                    </div>
-                )}
-            </div>
+            
+
+            <center>
+  <h3><a href="/login" style={{ color: 'grey'  }}>Please Login to access the Content?</a></h3>
+</center>
+
+            
         </div>
+       
     );
 };
 

@@ -7,7 +7,7 @@ const MainNavbar = () => {
     const navigate = useNavigate(); 
 
     const handleRegisterForCourse = () => {
-        navigate('/Register'); 
+        navigate('/login'); 
     };
 
     return (
@@ -15,13 +15,13 @@ const MainNavbar = () => {
             <div className="nav-left">
                 <Link to="/">Home</Link>
                 <Link to="/blog">Blog/Resources</Link>
-                <Link to="/register">Register</Link>
+               
                 <Link to="/login">Login</Link>
               
                 
             </div>
             <button onClick={handleRegisterForCourse} className="register-button">
-                Register for a Course?
+                Login to continue
             </button>
         </nav>
     );

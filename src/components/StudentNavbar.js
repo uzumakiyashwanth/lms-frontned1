@@ -14,6 +14,7 @@ const StudentNavbar = () => {
             <div className="nav-left">
                 <Link to="/student-dashboard">Dashboard</Link>
                 <Link to="/student-register-course">Register for Course</Link>
+                
             </div>
             <button onClick={handleLogout} className="logout-button">Logout</button>
         </nav>

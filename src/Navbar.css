@@ -2,7 +2,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #3e5b99;
+    background-color: #151515;
     padding: 15px 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     border-radius: 8px;
@@ -10,7 +10,7 @@ nav {
 }
 
 nav:hover {
-    background-color: #4a90e2;
+    background-color: #4c4e51;
 }
 
 .nav-left {
@@ -19,7 +19,7 @@ nav:hover {
 }
 
 nav a {
-    color: white;
+    color: rgb(255, 187, 0);
     text-decoration: none;
     margin: 0 15px;
     font-weight: 600;
