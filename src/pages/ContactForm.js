@@ -68,8 +68,9 @@ const ContactForm = () => {
   return (
     <div>
     <MainNavbar/>
-    <center><h2 style={{color:'white'}}>Contact Us</h2></center>
+    
     <div className='ContactForm'>
+      
       <div className='container'>
         <div className='row'>
           <div className='col-12 text-center'>

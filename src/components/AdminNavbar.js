@@ -1,12 +1,22 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import '../Navbar.css'; 
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'; // Import CSS for toast
+import '../Navbar.css';
 
 const AdminNavbar = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        navigate("/login");
+        // Perform logout actions (e.g., clear session data, etc.)
+        localStorage.clear(); // Clear session storage
+        
+        toast.success("Logged out successfully!"); // Show toast message
+        
+        // Delay navigation to allow toast to appear
+        setTimeout(() => {
+            navigate("/login"); // Redirect to the login page
+        }, 1000); // Delay by 1 second (1000 milliseconds)
     };
 
     return (
@@ -15,10 +25,9 @@ const AdminNavbar = () => {
             <Link to="/admin-view-students">Manage Students</Link>
             <Link to="/admin-view-instructors">Manage Instructors</Link>
             <Link to="/admin-manage-courses">Manage Courses</Link>  {/* New Link for course management */}
-           {/* <Link to="/admin-manage-roles">Manage User Roles</Link>  {/* New Link for user role management */}
-          {/*  <Link to="/admin-platform-settings">Platform Settings</Link>  {/* New Link for platform settings */}
-           {/* <Link to="/admin-content-review">Content Review</Link>  {/* New Link for reviewing course content */}
+            {/* Additional Links */}
             <button onClick={handleLogout}>Logout</button>
+            <ToastContainer /> {/* Toast container for displaying toasts */}
         </nav>
     );
 };

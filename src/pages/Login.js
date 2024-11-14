@@ -46,8 +46,14 @@ const Login = () => {
             // Check for the admin role with hardcoded credentials
             if (role === "ADMIN" && email === "admin@example.com" && password === "admin123") {
                 localStorage.setItem("role", role);
-                toast.success("Welcome, Admin!");
-                navigate("/admin-dashboard");
+                
+                // Show toast message immediately on the Login page
+                toast.success("Successful Login!");
+
+                // Delay the redirect by 1 second (1000 ms)
+                setTimeout(() => {
+                    navigate("/admin-dashboard");
+                }, 1000);
             } else if (role === "STUDENT") {
                 // Fetch student data from the backend
                 const response = await axios.get("http://localhost:8080/getregisterationdata");
@@ -59,8 +65,14 @@ const Login = () => {
                 if (user) {
                     localStorage.setItem("role", user.role);
                     localStorage.setItem("userName", user.name);
-                    toast.success(`Welcome, ${user.name}!`);
-                    navigate("/student-dashboard");
+
+                    // Show toast message immediately on the Login page
+                    toast.success("Successful Login!");
+
+                    // Delay the redirect by 1 second (1000 ms)
+                    setTimeout(() => {
+                        navigate("/student-dashboard");
+                    }, 1000);
                 } else {
                     toast.error("Invalid student credentials or role mismatch");
                 }
@@ -75,8 +87,14 @@ const Login = () => {
                 if (instructor) {
                     localStorage.setItem("role", instructor.role);
                     localStorage.setItem("userName", instructor.name);
-                    toast.success(`Welcome, ${instructor.name}!`);
-                    navigate("/instructor-dashboard");
+
+                    // Show toast message immediately on the Login page
+                    toast.success("Successful Login!");
+
+                    // Delay the redirect by 1 second (1000 ms)
+                    setTimeout(() => {
+                        navigate("/instructor-dashboard");
+                    }, 1000);
                 } else {
                     toast.error("Invalid instructor credentials or role mismatch");
                 }

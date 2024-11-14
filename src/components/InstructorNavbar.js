@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
+import 'react-toastify/dist/ReactToastify.css'; // Import CSS for toast
 import '../Navbar.css';
 
 const InstructorNavbar = () => {
@@ -10,8 +10,12 @@ const InstructorNavbar = () => {
 
     const handleLogout = () => {
         localStorage.clear(); // Clear session data
-        toast.success("Logged out successfully!");
-        navigate("/login");
+        toast.success("Logged out successfully!"); // Show toast message
+        
+        // Delay navigation to allow toast to appear
+        setTimeout(() => {
+            navigate("/login"); // Redirect to the login page
+        }, 1000); // Delay by 1 second (1000 milliseconds)
     };
 
     return (
@@ -28,7 +32,7 @@ const InstructorNavbar = () => {
                     <button onClick={handleLogout} className="logout-button">Logout</button>
                 </div>
             </div>
-            <ToastContainer />
+            <ToastContainer /> {/* Toast container for displaying toasts */}
         </nav>
     );
 };

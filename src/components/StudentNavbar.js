@@ -10,8 +10,12 @@ const StudentNavbar = () => {
 
     const handleLogout = () => {
         localStorage.clear(); // Clear session data
-        toast.success("Logged out successfully!");
-        navigate("/login");
+        toast.success("Logged out successfully!"); // Show toast message
+        
+        // Delay navigation to allow toast to appear
+        setTimeout(() => {
+            navigate("/login"); // Redirect to the login page
+        }, 1000); // Delay by 1 second (1000 milliseconds)
     };
 
     return (
@@ -28,7 +32,7 @@ const StudentNavbar = () => {
                     <button onClick={handleLogout} className="logout-button">Logout</button>
                 </div>
             </div>
-            <ToastContainer />
+            <ToastContainer /> {/* Toast container for displaying toasts */}
         </nav>
     );
 };
