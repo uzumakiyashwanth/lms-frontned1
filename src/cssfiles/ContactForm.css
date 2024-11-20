@@ -35,13 +35,13 @@
     background: #333;
     border: 1px solid #555;
     border-radius: 5px;
-    color: #fff;
+    color: #080707;
     width: 100%;
     transition: all 0.3s ease;
   }
   
   .formInput:focus {
-    border-color: #66afe9;
+    border-color: #000000;
     outline: none;
     box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
   }
