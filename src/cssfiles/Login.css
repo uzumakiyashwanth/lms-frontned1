@@ -61,3 +61,85 @@ form input:focus, form select:focus {
 form input::placeholder {
     color: #aaa;
 }
+/* OTP verification section */
+.otp-verification {
+    margin-top: 20px;
+}
+
+.otp-verification label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.otp-verification input {
+    width: 60%;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-right: 10px;
+    transition: border-color 0.3s ease;
+}
+
+.otp-verification input:focus {
+    border-color: #4c89ff;
+    outline: none;
+}
+
+.otp-verification button {
+    padding: 12px 20px;
+    background-color: #4c89ff;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.otp-verification button:hover {
+    background-color: #0066ff;
+}
+
+/* Responsive styling */
+@media (max-width: 1024px) {
+    .otp-verification input {
+        width: 80%; /* Make OTP input smaller on mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .otp-verification input {
+        width: 100%; /* Make OTP field full-width on very small screens */
+    }
+}
+/* Animation for OTP verification and dashboard transition */
+.fade-out {
+    animation: fadeOut 2s ease-out forwards;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+  }
+  
+  .dashboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .dashboard-container.visible {
+    opacity: 1;
+  }
+  

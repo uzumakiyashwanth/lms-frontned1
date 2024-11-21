@@ -13,6 +13,7 @@ import AdminNavbar from "./components/AdminNavbar";
 import AdminviewInstructors from "./pages/AdminviewInstructors";
 import ContactForm from "./pages/ContactForm";
 
+import PrivateRoute from "./pages/PrivateRoute"; // Ensure correct import path
 
 const App = () => {
     return (
@@ -22,14 +23,19 @@ const App = () => {
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/blog" element={<BlogResources />} />
-                <Route path="/student-dashboard" element={<StudentDashboard />} />
-                <Route path="/admin-dashboard" element={<AdminDashboard />} />
-                <Route path="/admin-view-instructors" element={<AdminviewInstructors />} />
-                <Route path="/instructor-dashboard" element={<InstructorDashboard />} />
-                <Route path="/admin-view-students" element={<AdminViewStudents />} />
-                <Route path="/admin-manage-courses" element={<ManageCourses />} /> 
-                <Route path="/admin-navbar" element={<AdminNavbar/>}/>
-                <Route path="/contact-us" element={<ContactForm/>}/>
+
+                {/* Protected Routes */}
+                <Route path="/student-dashboard" element={<PrivateRoute element={StudentDashboard} />} />
+                <Route path="/admin-dashboard" element={<PrivateRoute element={AdminDashboard} />} />
+                <Route path="/admin-view-instructors" element={<PrivateRoute element={AdminviewInstructors} />} />
+                <Route path="/instructor-dashboard" element={<PrivateRoute element={InstructorDashboard} />} />
+                <Route path="/admin-view-students" element={<PrivateRoute element={AdminViewStudents} />} />
+                <Route path="/admin-manage-courses" element={<PrivateRoute element={ManageCourses} />} /> 
+                <Route path="/admin-navbar" element={<PrivateRoute element={AdminNavbar} />} />
+                
+                {/* Public Routes */}
+                <Route path="/contact-us" element={<ContactForm />} />
+               
             </Routes>
         </Router>
     );
