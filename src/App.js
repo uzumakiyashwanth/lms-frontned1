@@ -17,6 +17,7 @@ import PrivateRoute from "./pages/PrivateRoute"; // Ensure correct import path
 import StudentRegisterForCourse from "./pages/StudentRegisterForCourse";
 import DeveloperProfilesPage from "./pages/DeveloperProfilesPage";
 
+
 const App = () => {
     return (
         <Router>
@@ -26,6 +27,7 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/blog" element={<BlogResources />} />
                 <Route path="/Our-team" element={<DeveloperProfilesPage />} />
+               
                 {/* Protected Routes */}
                 <Route path="/student-dashboard" element={<PrivateRoute element={StudentDashboard} />} />
                 <Route path="/student-register-course" element={<PrivateRoute element={StudentRegisterForCourse} />} />
