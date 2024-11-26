@@ -23,6 +23,7 @@ const StudentNavbar = () => {
             <div className="nav-left">
                 <Link to="/student-dashboard">Dashboard</Link>
                 <Link to="/student-register-course">Register for Course</Link>
+                <Link to="/myprofile">MY Profile</Link>
             </div>
             <div className="profile-section">
                 <div className="profile-icon" onClick={() => document.getElementById('profile-dropdown').classList.toggle('show')}>

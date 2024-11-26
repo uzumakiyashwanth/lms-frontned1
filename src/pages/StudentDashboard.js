@@ -3,12 +3,15 @@ import StudentNavbar from "../components/StudentNavbar";
 
 const StudentDashboard = () => {
     const userName = localStorage.getItem("userName");
+  
+
 
     return (
         <div style={styles.dashboardContainer}>
             <StudentNavbar />
             <div style={styles.contentContainer}>
                 <h1 style={styles.welcomeText}>Welcome, {userName}!</h1>
+               
                 <p style={styles.aboutLMS}>
                     Our Learning Management System (LMS) is designed to empower students by providing
                     a platform to explore, enroll, and manage courses. With easy navigation, students

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'; 
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../components/AdminNavbar';
 
@@ -23,6 +23,7 @@ const AdminViewStudents = () => {
         address: '',
         gender: ''
     });
+    const [error, setError] = useState('');
 
     useEffect(() => {
         fetchStudents();
@@ -37,10 +38,49 @@ const AdminViewStudents = () => {
         }
     };
 
+    const validateEmail = (email) => {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        return emailRegex.test(email);
+    };
+
+    const validatePhoneNumber = (phone) => {
+        const phoneRegex = /^[0-9]{10}$/;
+        return phoneRegex.test(phone);
+    };
+
+    const checkUniqueFields = () => {
+        const emailExists = students.some(student => student.email === newStudent.email);
+        const phoneExists = students.some(student => student.phone === newStudent.phone);
+
+        if (emailExists) {
+            setError("Email is already registered!");
+            return false;
+        }
+        if (phoneExists) {
+            setError("Phone number is already registered!");
+            return false;
+        }
+
+        setError('');
+        return true;
+    };
+
     const handleAddStudent = async () => {
+        if (!validateEmail(newStudent.email)) {
+            setError('Please enter a valid Gmail address.');
+            return;
+        }
+
+        if (!validatePhoneNumber(newStudent.phone)) {
+            setError('Phone number must be exactly 10 digits.');
+            return;
+        }
+
+        if (!checkUniqueFields()) return;
+
         try {
             await axios.post('http://localhost:8080/registernew', newStudent);
-            fetchStudents(); 
+            fetchStudents();
             setNewStudent({
                 name: '',
                 email: '',
@@ -60,9 +100,19 @@ const AdminViewStudents = () => {
     };
 
     const handleUpdateStudent = async () => {
+        if (!validateEmail(editStudent.email)) {
+            setError('Please enter a valid Gmail address.');
+            return;
+        }
+
+        if (!validatePhoneNumber(editStudent.phone)) {
+            setError('Phone number must be exactly 10 digits.');
+            return;
+        }
+
         try {
             await axios.put(`http://localhost:8080/updateuser/${editStudent.id}`, editStudent);
-            fetchStudents(); 
+            fetchStudents();
             setEditStudent({
                 id: '',
                 name: '',
@@ -72,7 +122,7 @@ const AdminViewStudents = () => {
                 phone: '',
                 address: '',
                 gender: ''
-            }); 
+            });
         } catch (error) {
             console.error("Error updating student:", error);
         }
@@ -81,7 +131,7 @@ const AdminViewStudents = () => {
     const handleDeleteStudent = async (id) => {
         try {
             await axios.delete(`http://localhost:8080/deleteuser/${id}`);
-            fetchStudents(); 
+            fetchStudents();
         } catch (error) {
             console.error("Error deleting student:", error);
         }
@@ -95,6 +145,8 @@ const AdminViewStudents = () => {
 
                 <div style={styles.formContainer}>
                     <h3>Add Student</h3>
+                    {error && <div style={{ color: 'red' }}>{error}</div>}
+
                     <input
                         style={styles.input}
                         type="text"
@@ -232,18 +284,8 @@ const AdminViewStudents = () => {
                                 <td style={styles.tableCell}>{student.address}</td>
                                 <td style={styles.tableCell}>{student.gender}</td>
                                 <td style={styles.tableCell}>
-                                    <button
-                                        style={styles.actionButton}
-                                        onClick={() => handleEditStudent(student)}
-                                    >
-                                        Edit
-                                    </button>
-                                    <button
-                                        style={styles.actionButton}
-                                        onClick={() => handleDeleteStudent(student.id)}
-                                    >
-                                        Delete
-                                    </button>
+                                    <button onClick={() => handleEditStudent(student)}>Edit</button>
+                                    <button onClick={() => handleDeleteStudent(student.id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}
@@ -253,6 +295,9 @@ const AdminViewStudents = () => {
         </div>
     );
 };
+
+
+
 
 const styles = {
     container: {

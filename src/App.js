@@ -16,6 +16,7 @@ import ContactForm from "./pages/ContactForm";
 import PrivateRoute from "./pages/PrivateRoute"; // Ensure correct import path
 import StudentRegisterForCourse from "./pages/StudentRegisterForCourse";
 import DeveloperProfilesPage from "./pages/DeveloperProfilesPage";
+import StudentMyProfile from "./pages/StudentMyProfile";
 
 
 const App = () => {
@@ -31,6 +32,8 @@ const App = () => {
                 {/* Protected Routes */}
                 <Route path="/student-dashboard" element={<PrivateRoute element={StudentDashboard} />} />
                 <Route path="/student-register-course" element={<PrivateRoute element={StudentRegisterForCourse} />} />
+                <Route path="/myprofile" element={<PrivateRoute element={StudentMyProfile}/>}/>
+
                 <Route path="/admin-dashboard" element={<PrivateRoute element={AdminDashboard} />} />
                 <Route path="/admin-view-instructors" element={<PrivateRoute element={AdminviewInstructors} />} />
                 <Route path="/instructor-dashboard" element={<PrivateRoute element={InstructorDashboard} />} />

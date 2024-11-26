@@ -13,7 +13,7 @@ const AdminviewInstructors = () => {
         qualifications: '',
         description: '',
         profilePictureUrl: '',
-        password: '',  // Add password field
+        password: '',
         isActive: true
     });
 
@@ -27,8 +27,46 @@ const AdminviewInstructors = () => {
         }
     };
 
+    // Validate Email and Phone Number
+    const validateFields = () => {
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@gmail\.com$/;
+        const phoneRegex = /^\d{10}$/;
+
+        if (!emailRegex.test(newInstructor.email)) {
+            alert("Please enter a valid Gmail address.");
+            return false;
+        }
+
+        if (!phoneRegex.test(newInstructor.phoneNumber)) {
+            alert("Phone number should be 10 digits long.");
+            return false;
+        }
+
+        // Check for unique email and phone number
+        const emailExists = instructors.some(
+            (instructor) => instructor.email === newInstructor.email && instructor.id !== newInstructor.id
+        );
+        const phoneExists = instructors.some(
+            (instructor) => instructor.phoneNumber === newInstructor.phoneNumber && instructor.id !== newInstructor.id
+        );
+
+        if (emailExists) {
+            alert("Email is already in use.");
+            return false;
+        }
+
+        if (phoneExists) {
+            alert("Phone number is already in use.");
+            return false;
+        }
+
+        return true;
+    };
+
     // Handle adding an instructor
     const handleAddInstructor = async () => {
+        if (!validateFields()) return;
+
         try {
             const instructorData = { ...newInstructor };
             delete instructorData.id; // Ensure 'id' is not sent in POST request
@@ -67,6 +105,8 @@ const AdminviewInstructors = () => {
 
     // Handle updating an instructor
     const handleUpdateInstructor = async (id) => {
+        if (!validateFields()) return;
+
         try {
             const updatedInstructor = { ...newInstructor, id };
             await axios.put(`http://localhost:8080/instructors/${id}`, updatedInstructor);
