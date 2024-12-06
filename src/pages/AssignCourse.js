@@ -129,6 +129,17 @@ const AssignCourse = () => {
         });
     };
 
+    const handleDelete = async (id) => {
+        try {
+            await axios.delete(`http://localhost:8080/api/assigned-courses/${id}`);
+            setSuccessMessage('Assigned course deleted successfully!');
+            fetchAssignedCourses(); // Refresh the list after deletion
+        } catch (err) {
+            console.error('Error deleting course:', err);
+            setError('Failed to delete the assigned course.');
+        }
+    };
+
     return (
         <div style={{ minHeight: '100vh' }}>
             <AdminNavbar />
@@ -219,26 +230,50 @@ const AssignCourse = () => {
                     >
                         <thead>
                             <tr style={{ backgroundColor: '#007bff', color: 'white' }}>
-                                <th style={{ padding: '10px', border: '1px solid #ddd' }}>Student Name</th>
-                                <th style={{ padding: '10px', border: '1px solid #ddd' }}>Instructor Name</th>
-                                <th style={{ padding: '10px', border: '1px solid #ddd' }}>Course Name</th>
-                                <th style={{ padding: '10px', border: '1px solid #ddd' }}>Course Code</th>
+                                <th style={{color:'white', padding: '10px', border: '1px solid #ddd' }}>Student ID</th>
+                                <th style={{color:'white', padding: '10px', border: '1px solid #ddd' }}>Student Name</th>
+                                <th style={{color:'white', padding: '10px', border: '1px solid #ddd' }}>Instructor ID</th>
+                                <th style={{ color:'white',padding: '10px', border: '1px solid #ddd' }}>Instructor Name</th>
+                                <th style={{color:'white', padding: '10px', border: '1px solid #ddd' }}>Course Name</th>
+                                <th style={{color:'white', padding: '10px', border: '1px solid #ddd' }}>Course Code</th>
+                                <th style={{ color:'white',padding: '10px', border: '1px solid #ddd' }}>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {assignedCourseList.map((course) => (
-                                <tr key={course.id} style={{ backgroundColor: '#f2f2f2' }}>
-                                    <td style={{ padding: '10px', border: '1px solid #ddd' }}>
-                                        {course.studentName}
+                            {assignedCourseList.map((assignedCourse) => (
+                                <tr key={assignedCourse.id}>
+                                    <td style={{color:'white', padding: '10px', border: '1px solid #ddd' }}>
+                                        {assignedCourse.studentId}
                                     </td>
-                                    <td style={{ padding: '10px', border: '1px solid #ddd' }}>
-                                        {course.instructorName}
+                                    <td style={{color:'white', padding: '10px', border: '1px solid #ddd' }}>
+                                        {assignedCourse.studentName}
                                     </td>
-                                    <td style={{ padding: '10px', border: '1px solid #ddd' }}>
-                                        {course.courseName}
+                                    <td style={{color:'white', padding: '10px', border: '1px solid #ddd' }}>
+                                        {assignedCourse.instructorId}
                                     </td>
-                                    <td style={{ padding: '10px', border: '1px solid #ddd' }}>
-                                        {course.courseCode}
+                                    <td style={{color:'white', padding: '10px', border: '1px solid #ddd' }}>
+                                        {assignedCourse.instructorName}
+                                    </td>
+                                    <td style={{color:'white', padding: '10px', border: '1px solid #ddd' }}>
+                                        {assignedCourse.courseName}
+                                    </td>
+                                    <td style={{color:'white', padding: '10px', border: '1px solid #ddd' }}>
+                                        {assignedCourse.courseCode}
+                                    </td>
+                                    <td style={{color:'white', padding: '10px', border: '1px solid #ddd' }}>
+                                        <button
+                                            onClick={() => handleDelete(assignedCourse.id)}
+                                            style={{
+                                                backgroundColor: 'red',
+                                                color: 'white',
+                                                border: 'none',
+                                                padding: '6px 12px',
+                                                borderRadius: '4px',
+                                                cursor: 'pointer',
+                                            }}
+                                        >
+                                            Delete
+                                        </button>
                                     </td>
                                 </tr>
                             ))}

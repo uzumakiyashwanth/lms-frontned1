@@ -3,8 +3,6 @@ import StudentNavbar from "../components/StudentNavbar";
 
 const StudentDashboard = () => {
     const userName = localStorage.getItem("userName");
-  
-
 
     return (
         <div style={styles.dashboardContainer}>
@@ -36,10 +34,7 @@ const StudentDashboard = () => {
                         With expert knowledge in their fields, they provide high-quality teaching and are always available to
                         support you.
                     </p>
-                    <div >
-                       
                     <div style={styles.instructorCards}>
-                    
                         <div style={styles.instructorCard}>
                             <h3 style={styles.instructorName}>DR RM Balajee</h3>
                             <p style={styles.instructorRole}>Course Instructor - Web Development</p>
@@ -48,7 +43,6 @@ const StudentDashboard = () => {
                                 of developers. With a Ph.D. in Computer Science, she brings cutting-edge knowledge to her courses.
                             </p>
                         </div>
-                    </div>
                     </div>
                 </div>
 
@@ -90,107 +84,117 @@ const StudentDashboard = () => {
     );
 };
 
-/*
-https://www.youtube.com/embed/SqcY0GlETPk?si=LejMrc0L4DueMB8E
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ua-CiDNNj30?si=VFxNLgnYASg9w4ax" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-*/
-
 const styles = {
     dashboardContainer: {
         fontFamily: "'Arial', sans-serif",
         minHeight: "100vh",
-       // Deep blue background
-        color: "#fff", // White text for contrast against dark blue
+        backgroundColor: "#1a1a2e", // Darker background for a sleek look
+        color: "#fff",
         padding: "20px",
         textAlign: "center",
+        display: "flex",
+        flexDirection: "column",
     },
     contentContainer: {
         margin: "0 auto",
         maxWidth: "900px",
+        paddingTop: "40px", // Add space from top
     },
     welcomeText: {
         fontSize: "2.5em",
-        color: "#FFFB00", // Yellow text for the welcome message
+        color: "#FFFB00",
         fontWeight: "600",
+        marginBottom: "20px",
     },
     aboutLMS: {
         fontSize: "1.2em",
         marginTop: "20px",
-        color: "#e0e0e0", // Lighter grey text for descriptions
+        color: "#e0e0e0",
+        lineHeight: "1.6",
     },
     features: {
         fontSize: "1.1em",
         marginTop: "20px",
-        color: "#e0e0e0", // Lighter grey text for feature descriptions
+        color: "#e0e0e0",
+        lineHeight: "1.6",
     },
     featureList: {
         textAlign: "left",
         paddingLeft: "20px",
+        marginTop: "10px",
     },
     instructorSection: {
         marginTop: "40px",
     },
     sectionHeader: {
-        fontSize: "2em",
-        color: "#FFFB00", // Yellow header for section titles
+        fontSize: "2.2em",
+        color: "#FFFB00",
         fontWeight: "600",
     },
     instructorText: {
         fontSize: "1.2em",
-        color: "#e0e0e0", // Lighter grey text for instructor section
+        color: "#e0e0e0",
+        lineHeight: "1.6",
     },
     instructorCards: {
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
-        gap: "20px",
+        paddingLeft:"40px",
+        gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
+     
         marginTop: "20px",
     },
     instructorCard: {
-        backgroundColor: "#2B4D99", // Slightly lighter blue for cards
+        backgroundColor: "#2B4D99",
         padding: "20px",
         borderRadius: "10px",
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    },
+    instructorCardHover: {
+        transform: "translateY(-10px)",
+        boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
     },
     instructorName: {
         fontSize: "1.5em",
-        color: "#FFFB00", // Yellow text for instructor names
+        color: "#FFFB00",
         fontWeight: "bold",
     },
     instructorRole: {
         fontSize: "1.1em",
-        color: "#FFD700", // Gold text for the instructor role
+        color: "#FFD700",
     },
     instructorBio: {
         fontSize: "1em",
-        color: "#e0e0e0", // Lighter grey text for instructor bios
+        color: "#e0e0e0",
     },
     videoSection: {
         marginTop: "40px",
     },
     videoText: {
         fontSize: "1.2em",
-        color: "#e0e0e0", // Lighter grey text for video descriptions
+        color: "#e0e0e0",
+        lineHeight: "1.6",
     },
     videoCards: {
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
+        gridTemplateColumns: "repeat(auto-fill, minmax(380px, 1fr))",
         gap: "20px",
         marginTop: "20px",
     },
     videoCard: {
-        backgroundColor: "#2B4D99", // Slightly lighter blue for cards
+        backgroundColor: "#2B4D99",
         padding: "20px",
         borderRadius: "10px",
         boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
     },
     videoTitle: {
         fontSize: "1.5em",
-        color: "#FFFB00", // Yellow text for video titles
+        color: "#FFFB00",
         marginBottom: "10px",
     },
     videoIframe: {
         borderRadius: "10px",
+        maxWidth: "100%",
     },
 };
 

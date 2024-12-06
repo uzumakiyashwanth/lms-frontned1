@@ -18,6 +18,9 @@ import StudentRegisterForCourse from "./pages/StudentRegisterForCourse";
 import DeveloperProfilesPage from "./pages/DeveloperProfilesPage";
 import StudentMyProfile from "./pages/StudentMyProfile";
 import AssignCourse from "./pages/AssignCourse";
+import NewErr from "./pages/NewErr";
+import StudentCourses from "./pages/StudentCourses";
+import InstructorMyProfile from "./pages/InstructorMyProfile";
 
 
 const App = () => {
@@ -29,14 +32,17 @@ const App = () => {
                 <Route path="/login" element={<Login />} />
                 <Route path="/blog" element={<BlogResources />} />
                 <Route path="/Our-team" element={<DeveloperProfilesPage />} />
-               
+             <Route path="*" element={<NewErr/>}/>
                 {/* Protected Routes */}
                 <Route path="/student-dashboard" element={<PrivateRoute element={StudentDashboard} />} />
                 <Route path="/student-register-course" element={<PrivateRoute element={StudentRegisterForCourse} />} />
                 <Route path="/myprofile" element={<PrivateRoute element={StudentMyProfile}/>}/>
+                <Route path="/student-courses" element={<PrivateRoute element={StudentCourses}/>}/>
+
 
                 <Route path="/admin-dashboard" element={<PrivateRoute element={AdminDashboard} />} />
                 <Route path="/admin-view-instructors" element={<PrivateRoute element={AdminviewInstructors} />} />
+                <Route path="/instructor-profile" element={<PrivateRoute element={InstructorMyProfile}/>}/>
                 <Route path="/assign-courses" element={<PrivateRoute element={AssignCourse}/>}/>
                 <Route path="/instructor-dashboard" element={<PrivateRoute element={InstructorDashboard} />} />
                 <Route path="/admin-view-students" element={<PrivateRoute element={AdminViewStudents} />} />

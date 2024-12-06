@@ -42,6 +42,7 @@ const AdminDashboard = () => {
         <div style={styles.container}>
             <AdminNavbar />
             <h1 style={styles.heading}>Welcome to the Admin Dashboard</h1>
+            
             <div style={styles.statsContainer}>
                 <div style={styles.card}>
                     <CircularProgressbar 
@@ -68,10 +69,12 @@ const AdminDashboard = () => {
                     <p style={styles.circleLabel}>Courses</p>
                 </div>
             </div>
+            <h1 style={styles.heading}>Admin operations</h1>
             <div style={styles.linksContainer}>
                 <Link to="/admin-manage-courses" style={styles.link}>Manage Courses</Link>
-                <Link to="/admin-view-students" style={styles.link}>View Students</Link>
-                <Link to="/admin-view-instructors" style={styles.link}>View Instructors</Link>
+                <Link to="/admin-view-students" style={styles.link}>add & manage Students</Link>
+                <Link to="/admin-view-instructors" style={styles.link}>add & manage Instructors</Link>
+                <Link to="/assign-courses" style={styles.link}>assign courses</Link>
             </div>
         </div>
     );

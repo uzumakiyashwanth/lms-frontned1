@@ -1,59 +1,59 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
-import StudentNavbar from '../components/StudentNavbar';
+import InstructorNavbar from '../components/InstructorNavbar';
 
-const StudentMyProfile = () => {
-    const [studentDetails, setStudentDetails] = useState(null);
+const InstructorMyProfile = () => {
+    const [instructorDetails, setInstructorDetails] = useState(null);
     const [editMode, setEditMode] = useState(false);
-    const [editStudent, setEditStudent] = useState(null);
+    const [editInstructor, setEditInstructor] = useState(null);
     const email = localStorage.getItem("Useremail");
 
-    const fetchStudentDetails = useCallback(async () => {
+    const fetchInstructorDetails = useCallback(async () => {
         try {
-            const response = await axios.get('http://localhost:8080/getregisterationdata');
-            const student = response.data.find(student => student.email === email);
-            if (student) {
-                setStudentDetails(student);
-                setEditStudent(student);
+            const response = await axios.get('http://localhost:8080/instructors');
+            const instructor = response.data.find(instructor => instructor.email === email);
+            if (instructor) {
+                setInstructorDetails(instructor);
+                setEditInstructor(instructor);
             }
         } catch (error) {
-            console.error("Error fetching student details:", error);
+            console.error("Error fetching instructor details:", error);
         }
     }, [email]);
 
     useEffect(() => {
-        fetchStudentDetails();
-    }, [fetchStudentDetails]);
+        fetchInstructorDetails();
+    }, [fetchInstructorDetails]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        setEditStudent({
-            ...editStudent,
+        setEditInstructor({
+            ...editInstructor,
             [name]: value,
         });
     };
 
     const handleUpdate = async () => {
         try {
-            await axios.put(`http://localhost:8080/updateuser/${editStudent.id}`, editStudent);
+            await axios.put(`http://localhost:8080/instructors/${editInstructor.id}`, editInstructor);
             setEditMode(false);
-            fetchStudentDetails();
+            fetchInstructorDetails();
             alert("Profile updated successfully!");
         } catch (error) {
-            console.error("Error updating student:", error);
+            console.error("Error updating instructor:", error);
         }
     };
 
     return (
         <div>
-            <StudentNavbar />
+            <InstructorNavbar />
             <div style={styles.container}>
-                {studentDetails ? (
+                {instructorDetails ? (
                     <div style={styles.card}>
                         <h2 style={styles.header}>My Profile</h2>
                         <div style={styles.formGroup}>
                             <label style={styles.label}>Your ID:</label>
-                            <p style={styles.text}>{studentDetails.id}</p> {/* Displaying ID */}
+                            <p style={styles.text}>{instructorDetails.id}</p> {/* Displaying ID */}
                         </div>
                         <div style={styles.formGroup}>
                             <label style={styles.label}>Name:</label>
@@ -61,17 +61,17 @@ const StudentMyProfile = () => {
                                 <input
                                     type="text"
                                     name="name"
-                                    value={editStudent.name}
+                                    value={editInstructor.name}
                                     onChange={handleInputChange}
                                     style={styles.input}
                                 />
                             ) : (
-                                <p style={styles.text}>{studentDetails.name}</p>
+                                <p style={styles.text}>{instructorDetails.name}</p>
                             )}
                         </div>
                         <div style={styles.formGroup}>
                             <label style={styles.label}>Email:</label>
-                            <p style={styles.text}>{studentDetails.email}</p>
+                            <p style={styles.text}>{instructorDetails.email}</p>
                         </div>
                         <div style={styles.formGroup}>
                             <label style={styles.label}>Password:</label>
@@ -79,7 +79,7 @@ const StudentMyProfile = () => {
                                 <input
                                     type="password"
                                     name="password"
-                                    value={editStudent.password}
+                                    value={editInstructor.password}
                                     onChange={handleInputChange}
                                     style={styles.input}
                                 />
@@ -88,62 +88,58 @@ const StudentMyProfile = () => {
                             )}
                         </div>
                         <div style={styles.formGroup}>
-                            <label style={styles.label}>Date of Birth:</label>
-                            {editMode ? (
-                                <input
-                                    type="date"
-                                    name="dob"
-                                    value={editStudent.dob}
-                                    onChange={handleInputChange}
-                                    style={styles.input}
-                                />
-                            ) : (
-                                <p style={styles.text}>{studentDetails.dob}</p>
-                            )}
-                        </div>
-                        <div style={styles.formGroup}>
                             <label style={styles.label}>Phone:</label>
                             {editMode ? (
                                 <input
                                     type="text"
-                                    name="phone"
-                                    value={editStudent.phone}
+                                    name="phoneNumber"
+                                    value={editInstructor.phoneNumber}
                                     onChange={handleInputChange}
                                     style={styles.input}
                                 />
                             ) : (
-                                <p style={styles.text}>{studentDetails.phone}</p>
+                                <p style={styles.text}>{instructorDetails.phoneNumber}</p>
                             )}
                         </div>
                         <div style={styles.formGroup}>
-                            <label style={styles.label}>Address:</label>
+                            <label style={styles.label}>Department:</label>
                             {editMode ? (
                                 <input
                                     type="text"
-                                    name="address"
-                                    value={editStudent.address}
+                                    name="department"
+                                    value={editInstructor.department}
                                     onChange={handleInputChange}
                                     style={styles.input}
                                 />
                             ) : (
-                                <p style={styles.text}>{studentDetails.address}</p>
+                                <p style={styles.text}>{instructorDetails.department}</p>
                             )}
                         </div>
                         <div style={styles.formGroup}>
-                            <label style={styles.label}>Gender:</label>
+                            <label style={styles.label}>Qualifications:</label>
                             {editMode ? (
-                                <select
-                                    name="gender"
-                                    value={editStudent.gender}
+                                <input
+                                    type="text"
+                                    name="qualifications"
+                                    value={editInstructor.qualifications}
                                     onChange={handleInputChange}
                                     style={styles.input}
-                                >
-                                    <option value="Male">Male</option>
-                                    <option value="Female">Female</option>
-                                    <option value="Other">Other</option>
-                                </select>
+                                />
                             ) : (
-                                <p style={styles.text}>{studentDetails.gender}</p>
+                                <p style={styles.text}>{instructorDetails.qualifications}</p>
+                            )}
+                        </div>
+                        <div style={styles.formGroup}>
+                            <label style={styles.label}>Description:</label>
+                            {editMode ? (
+                                <textarea
+                                    name="description"
+                                    value={editInstructor.description}
+                                    onChange={handleInputChange}
+                                    style={styles.input}
+                                />
+                            ) : (
+                                <p style={styles.text}>{instructorDetails.description}</p>
                             )}
                         </div>
                         {editMode ? (
@@ -245,4 +241,4 @@ const styles = {
     },
 };
 
-export default StudentMyProfile;
+export default InstructorMyProfile;

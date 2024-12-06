@@ -1,8 +1,8 @@
 import React from "react";
 import MainNavbar from "../components/MainNavbar";
 import d1 from "../images/d1.jpg";
-import d2 from "../images/d2.jpg";
-
+import error from "../images/error.jpg";
+import d3 from "../images/d3.jpg";
 const developers = [
     {
         id: "2200031974",
@@ -16,14 +16,14 @@ const developers = [
         name: "Pinnaka Mani Swaroop",
         role: "Full Stack Developer",
         accomplishments: "Developed core features using React for the frontend and Spring Boot for the backend. Contributed to LMS architecture and integrated various functionalities.",
-        image: d2,
+        image:error,
     },
     {
-        id: "003",
+        id: "2200031857",
         name: "Karthik Reddy Gade",
         role: "Backend Developer",
         accomplishments: "Worked extensively on Spring Boot, API development, and integrating MySQL database for the LMS backend. Developed the admin and instructor features.",
-        image: "https://www.example.com/karthik.jpg",
+        image: d3,
     },
 ];
 
