@@ -1,7 +1,7 @@
 import React from "react";
 import MainNavbar from "../components/MainNavbar";
 import d1 from "../images/d1.jpg";
-import error from "../images/error.jpg";
+import d2 from "../images/d2.jpg";
 import d3 from "../images/d3.jpg";
 const developers = [
     {
@@ -16,7 +16,7 @@ const developers = [
         name: "Pinnaka Mani Swaroop",
         role: "Full Stack Developer",
         accomplishments: "Developed core features using React for the frontend and Spring Boot for the backend. Contributed to LMS architecture and integrated various functionalities.",
-        image:error,
+        image:d2,
     },
     {
         id: "2200031857",
