@@ -81,7 +81,7 @@ const ManageCourses = () => {
                         onChange={(e) => setNewCourse({ ...newCourse, name: e.target.value })}
                     />
                     <textarea
-                        style={styles.input}
+                        style={styles.textarea} // Apply the textarea style
                         placeholder="Course Description"
                         value={newCourse.description}
                         onChange={(e) => setNewCourse({ ...newCourse, description: e.target.value })}
@@ -114,7 +114,7 @@ const ManageCourses = () => {
                                 courses.map(course => (
                                     <tr key={course.id}>
                                         <td style={styles.tableCell}>{course.name}</td>
-                                        <td style={styles.tableCell}>{course.description}</td>
+                                        <td style={styles.tableCell}>{course.description}</td> {/* Ensure text wrapping */}
                                         <td style={styles.tableCell}>
                                             <button style={styles.editButton} onClick={() => handleEditClick(course)}>Edit</button>
                                             <button style={styles.deleteButton} onClick={() => handleDeleteCourse(course.id)}>Delete</button>
@@ -156,6 +156,17 @@ const styles = {
         backgroundColor: '#444',
         color: '#fff',
     },
+    textarea: {
+        margin: '5px',
+        padding: '10px',
+        borderRadius: '4px',
+        border: '1px solid #fff',
+        width: '250px',
+        height: '100px', // Ensure sufficient height for description
+        backgroundColor: '#444',
+        color: '#fff',
+        resize: 'none', // Disable resizing to maintain consistent appearance
+    },
     button: {
         margin: '5px',
         padding: '10px 15px',
@@ -183,6 +194,7 @@ const styles = {
         borderBottom: '1px solid #ddd',
         color: '#fff',
         textAlign: 'left',
+        wordWrap: 'break-word', // Allow text to wrap in table cells
     },
     tableRow: {
         transition: 'background-color 0.3s ease',
@@ -209,13 +221,6 @@ const styles = {
         cursor: 'pointer',
         transition: 'background-color 0.2s ease',
     },
-    editButtonHover: {
-        backgroundColor: '#2980b9',
-    },
-    deleteButtonHover: {
-        backgroundColor: '#c0392b',
-    },
 };
-
 
 export default ManageCourses;

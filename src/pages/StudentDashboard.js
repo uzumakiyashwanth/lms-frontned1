@@ -36,8 +36,10 @@ const StudentDashboard = () => {
                         With expert knowledge in their fields, they provide high-quality teaching and are always available to
                         support you.
                     </p>
+                    <div >
+                       
                     <div style={styles.instructorCards}>
-                        
+                    
                         <div style={styles.instructorCard}>
                             <h3 style={styles.instructorName}>DR RM Balajee</h3>
                             <p style={styles.instructorRole}>Course Instructor - Web Development</p>
@@ -46,6 +48,7 @@ const StudentDashboard = () => {
                                 of developers. With a Ph.D. in Computer Science, she brings cutting-edge knowledge to her courses.
                             </p>
                         </div>
+                    </div>
                     </div>
                 </div>
 
