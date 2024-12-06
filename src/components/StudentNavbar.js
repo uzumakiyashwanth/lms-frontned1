@@ -18,6 +18,16 @@ const StudentNavbar = () => {
         }, 1000); // Delay by 1 second (1000 milliseconds)
     };
 
+
+    const myprofilebut = () => {
+        
+        
+        // Delay navigation to allow toast to appear
+      
+            navigate("/myprofile"); // Redirect to the login page
+       // Delay by 1 second (1000 milliseconds)
+    };
+
     return (
         <nav className="navbar">
             <div className="nav-left">
@@ -31,6 +41,7 @@ const StudentNavbar = () => {
                 </div>
                 <div id="profile-dropdown" className="dropdown-content">
                     <button onClick={handleLogout} className="logout-button">Logout</button>
+                    <button onClick={myprofilebut} className="logout-button">MY Profile</button>
                 </div>
             </div>
             <ToastContainer /> {/* Toast container for displaying toasts */}

@@ -24,7 +24,9 @@ const AdminNavbar = () => {
             <Link to="/admin-dashboard">Dashboard</Link>
             <Link to="/admin-view-students">Manage Students</Link>
             <Link to="/admin-view-instructors">Manage Instructors</Link>
-            <Link to="/admin-manage-courses">Manage Courses</Link>  {/* New Link for course management */}
+            <Link to="/admin-manage-courses">Manage Courses</Link> 
+            <Link to="/assign-courses">AssignCourses</Link>
+             {/* New Link for course management */}
             {/* Additional Links */}
             <button onClick={handleLogout}>Logout</button>
             <ToastContainer /> {/* Toast container for displaying toasts */}

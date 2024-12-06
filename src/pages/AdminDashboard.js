@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AdminNavbar from "../components/AdminNavbar";
 import axios from 'axios';
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';  // Import buildStyles
+import 'react-circular-progressbar/dist/styles.css';
 
 const AdminDashboard = () => {
     const [counts, setCounts] = useState({
@@ -17,10 +19,6 @@ const AdminDashboard = () => {
             const instructorsResponse = await axios.get('http://localhost:8080/instructors/count');
             const coursesResponse = await axios.get('http://localhost:8080/courses/count');
     
-            console.log("Students count:", studentsResponse.data);
-            console.log("Instructors count:", instructorsResponse.data);
-            console.log("Courses count:", coursesResponse.data);
-    
             setCounts({
                 students: studentsResponse.data,
                 instructors: instructorsResponse.data,
@@ -35,39 +33,45 @@ const AdminDashboard = () => {
         fetchCounts();
     }, []);
 
+    const getProgressValue = (count, max) => {
+        // Calculate percentage
+        return Math.min((count / max) * 100, 100); // Ensure value doesn't exceed 100%
+    };
+
     return (
-        <div>
+        <div style={styles.container}>
             <AdminNavbar />
-           <center><h1>Welcome to Admin Dashboard</h1></center> 
-            <div style={styles.container}>
-                <h2 style={{color:'black'}}>Admin Overview</h2>
-
-                <div style={styles.countContainer}>
-                    <div style={styles.countCircle}>
-                        <h3>{counts.students}</h3>
-                        <p>Students</p>
-                    </div>
-                    <div style={styles.countCircle}>
-                        <h3>{counts.instructors}</h3>
-                        <p>Instructors</p>
-                    </div>
-                    <div style={styles.countCircle}>
-                        <h3>{counts.courses}</h3>
-                        <p>Courses </p>
-                    </div>
+            <h1 style={styles.heading}>Welcome to the Admin Dashboard</h1>
+            <div style={styles.statsContainer}>
+                <div style={styles.card}>
+                    <CircularProgressbar 
+                        value={getProgressValue(counts.students, 1000)} // Dynamic scaling
+                        text={`${counts.students}`} 
+                        styles={buildStyles({ pathColor: '#FFB74D', textColor: '#fff', trailColor: '#3e3e3e' })}
+                    />
+                    <p style={styles.circleLabel}>Students</p>
                 </div>
-
-                <center>
-                    <Link to="/admin-manage-courses" style={styles.link}>Course Management</Link>
-                </center>
-                <br />
-                <center>
-                    <Link to="/admin-view-students" style={styles.link}>Student Registration</Link>
-                </center>
-                <br />
-                <center>
-                    <Link to="/admin-view-instructors" style={styles.link}>Instructor Registration</Link>
-                </center>
+                <div style={styles.card}>
+                    <CircularProgressbar 
+                        value={getProgressValue(counts.instructors, 100)} // Dynamic scaling
+                        text={`${counts.instructors}`} 
+                        styles={buildStyles({ pathColor: '#4CAF50', textColor: '#fff', trailColor: '#3e3e3e' })}
+                    />
+                    <p style={styles.circleLabel}>Instructors</p>
+                </div>
+                <div style={styles.card}>
+                    <CircularProgressbar 
+                        value={getProgressValue(counts.courses, 50)} // Dynamic scaling
+                        text={`${counts.courses}`} 
+                        styles={buildStyles({ pathColor: '#2196F3', textColor: '#fff', trailColor: '#3e3e3e' })}
+                    />
+                    <p style={styles.circleLabel}>Courses</p>
+                </div>
+            </div>
+            <div style={styles.linksContainer}>
+                <Link to="/admin-manage-courses" style={styles.link}>Manage Courses</Link>
+                <Link to="/admin-view-students" style={styles.link}>View Students</Link>
+                <Link to="/admin-view-instructors" style={styles.link}>View Instructors</Link>
             </div>
         </div>
     );
@@ -75,37 +79,63 @@ const AdminDashboard = () => {
 
 const styles = {
     container: {
+        
+        color: '#fff',
         padding: '20px',
-        backgroundColor: 'white',
-        borderRadius: '8px',
-        margin: '20px',
+        minHeight: '100vh',
+        fontFamily: 'Poppins, sans-serif',
     },
-    link: {
-        display: 'inline-block',
-        padding: '10px 20px',
-        backgroundColor: '#007bff',
-        color: 'white',
-        textDecoration: 'none',
-        borderRadius: '4px',
+    heading: {
+        textAlign: 'center',
+        fontSize: '36px',
+        color: '#fff',
         marginTop: '20px',
+        fontWeight: '600',
     },
-    countContainer: {
+    statsContainer: {
         display: 'flex',
         justifyContent: 'space-around',
-        margin: '20px 0',
+        marginTop: '30px',
     },
-    countCircle: {
-        backgroundColor: 'black',
-        borderRadius: '50%',
-        width: '120px',
-        height: '120px',
+    card: {
+        backgroundColor: '#333',
+        borderRadius: '16px',
+        width: '180px',
+        height: '180px',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
         color: 'white',
         textAlign: 'center',
-        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        margin: '0 20px',
+        boxShadow: '0 10px 20px rgba(0, 0, 0, 0.3)',
+        transition: 'all 0.3s ease',
+    },
+    circleLabel: {
+        fontSize: '16px',
+        marginTop: '10px',
+        fontWeight: '500',
+    },
+    linksContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        alignItems: 'center',
+        marginTop: '40px',
+    },
+    link: {
+        padding: '14px 28px',
+        backgroundColor: '#2196F3',
+        color: 'white',
+        textDecoration: 'none',
+        borderRadius: '8px',
+        margin: '10px 0',
+        fontSize: '18px',
+        textAlign: 'center',
+        width: '220px',
+        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.2)',
+        transition: 'all 0.3s ease',
     },
 };
 

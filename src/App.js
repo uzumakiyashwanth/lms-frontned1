@@ -17,6 +17,7 @@ import PrivateRoute from "./pages/PrivateRoute"; // Ensure correct import path
 import StudentRegisterForCourse from "./pages/StudentRegisterForCourse";
 import DeveloperProfilesPage from "./pages/DeveloperProfilesPage";
 import StudentMyProfile from "./pages/StudentMyProfile";
+import AssignCourse from "./pages/AssignCourse";
 
 
 const App = () => {
@@ -36,6 +37,7 @@ const App = () => {
 
                 <Route path="/admin-dashboard" element={<PrivateRoute element={AdminDashboard} />} />
                 <Route path="/admin-view-instructors" element={<PrivateRoute element={AdminviewInstructors} />} />
+                <Route path="/assign-courses" element={<PrivateRoute element={AssignCourse}/>}/>
                 <Route path="/instructor-dashboard" element={<PrivateRoute element={InstructorDashboard} />} />
                 <Route path="/admin-view-students" element={<PrivateRoute element={AdminViewStudents} />} />
                 <Route path="/admin-manage-courses" element={<PrivateRoute element={ManageCourses} />} /> 
