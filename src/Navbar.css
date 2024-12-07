@@ -70,7 +70,7 @@ nav button:hover {
 }
 
 .register-button {
-    background-color: #27ae60; /* Green for register button */
+    background-color: #ff6347; /* Green for register button */
     color: white;
     padding: 12px 18px;
     border: none;
@@ -82,7 +82,7 @@ nav button:hover {
 }
 
 .register-button:hover {
-    background-color: #2ecc71; /* Lighter green on hover */
+    background-color: #000000; /* Lighter green on hover */
     transform: scale(1.05);
 }
 

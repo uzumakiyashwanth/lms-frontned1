@@ -21,6 +21,9 @@ import AssignCourse from "./pages/AssignCourse";
 import NewErr from "./pages/NewErr";
 import StudentCourses from "./pages/StudentCourses";
 import InstructorMyProfile from "./pages/InstructorMyProfile";
+import InstructoraddCourses from "./pages/InstructoraddCourses";
+import InstructorCourses from "./pages/InstructorAssignedCourses";
+
 
 
 const App = () => {
@@ -42,7 +45,12 @@ const App = () => {
 
                 <Route path="/admin-dashboard" element={<PrivateRoute element={AdminDashboard} />} />
                 <Route path="/admin-view-instructors" element={<PrivateRoute element={AdminviewInstructors} />} />
+
+                
+              
                 <Route path="/instructor-profile" element={<PrivateRoute element={InstructorMyProfile}/>}/>
+                <Route path="/instructor-courses" element={<PrivateRoute element={InstructoraddCourses}/>}/>
+                <Route path="/instructor-your-courses" element={<PrivateRoute element={InstructorCourses}/>}/>
                 <Route path="/assign-courses" element={<PrivateRoute element={AssignCourse}/>}/>
                 <Route path="/instructor-dashboard" element={<PrivateRoute element={InstructorDashboard} />} />
                 <Route path="/admin-view-students" element={<PrivateRoute element={AdminViewStudents} />} />

@@ -33,7 +33,9 @@ const InstructorNavbar = () => {
         <nav className="navbar">
             <div className="nav-left">
                 <Link to="/instructor-dashboard">Dashboard</Link>
-                <Link to="/instructor-courses">Manage Courses</Link>
+                <Link to="/instructor-courses">InstructorAddCourses</Link>
+                <Link to="/instructor-your-courses">Your assigned course</Link>
+              
                 <Link to="/instructor-profile">My Profile</Link>
             </div>
             <div className="profile-section">

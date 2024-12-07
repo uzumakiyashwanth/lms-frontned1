@@ -21,7 +21,7 @@ const MainNavbar = () => {
               
             </div>
             <button onClick={handleRegisterForCourse} className="register-button">
-                Login to continue
+                Login to explore
             </button>
         </nav>
     );

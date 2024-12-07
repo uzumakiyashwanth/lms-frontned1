@@ -3,47 +3,65 @@ import MainNavbar from "../components/MainNavbar";
 import './HomePage.css';
 import image from '../images/image.png';
 
-
 const HomePage = () => {
-   
-
     const staticCourses = [
         {
             id: 1,
-            title: 'React Basics',
-            description: 'Learn the fundamentals of React and build your first web app.',
-            url: 'https://www.youtube.com/embed/w7ejDZ8SWv8'
+            title: 'Introduction to AI',
+            description: 'Explore the basics of Artificial Intelligence and its real-world applications.',
+            url: 'https://www.youtube.com/embed/2ePf9rue1Ao'
         },
         {
             id: 2,
-            title: 'Spring Boot Essentials',
-            description: 'Master the essentials of Spring Boot and create powerful backend services.',
-            url: 'https://www.youtube.com/embed/35EQXmHKZYs'
+            title: 'Mastering Python',
+            description: 'Learn Python from beginner to advanced level with hands-on projects.',
+            url: 'https://www.youtube.com/embed/rfscVS0vtbw'
         },
         {
             id: 3,
-            title: 'MySQL Database Management',
-            description: 'Understand database fundamentals and manage data effectively with MySQL.',
-            url: 'https://www.youtube.com/embed/7S_tz1z_5bA'
+            title: 'Web Development Crash Course',
+            description: 'Build stunning websites with HTML, CSS, and JavaScript.',
+            url: 'https://www.youtube.com/embed/pQN-pnXPaVg'
         },
         {
             id: 4,
-            title: 'JavaScript ES6 Features',
-            description: 'Dive deep into modern JavaScript and learn the latest features from ES6 and beyond.',
-            url: 'https://www.youtube.com/embed/NCwa_xi0Uuc'
+            title: 'Cloud Computing with AWS',
+            description: 'Understand cloud computing and get started with AWS essentials.',
+            url: 'https://www.youtube.com/embed/ulprqHHWlng'
         },
         {
             id: 5,
-            title: 'Docker Basics',
-            description: 'Learn how to containerize applications using Docker, an essential DevOps tool.',
-            url: 'https://www.youtube.com/embed/fqMOX6JJhGo'
+            title: 'Cybersecurity Basics',
+            description: 'Learn the fundamentals of securing online systems and networks.',
+            url: 'https://www.youtube.com/embed/1uBwtkqkJ2Q'
         },
         {
             id: 6,
-            title: 'Docker Basics',
-            description: 'Learn how to containerize applications using Docker, an essential DevOps tool.',
-            url: 'https://www.youtube.com/embed/fqMOX6JJhGo'
+            title: 'Web Development Crash Course',
+            description: 'Build stunning websites with HTML, CSS, and JavaScript.',
+            url: 'https://www.youtube.com/embed/pQN-pnXPaVg'
         },
+    ];
+
+    const testimonialsData = [
+        {
+            id: 1,
+            text: "This platform has transformed how I learn and upskill for my career.",
+            name: "Sneha, Data Scientist",
+            avatar: "https://via.placeholder.com/60" // Replace with actual avatar URL
+        },
+        {
+            id: 2,
+            text: "Amazing courses and great instructors! Highly recommend this LMS.",
+            name: "Arjun, Software Engineer",
+            avatar: "https://via.placeholder.com/60" // Replace with actual avatar URL
+        },
+        {
+            id: 3,
+            text: "The community and mentorship here are top-notch. I've learned so much!",
+            name: "Priya, UX Designer",
+            avatar: "https://via.placeholder.com/60" // Replace with actual avatar URL
+        }
     ];
 
     return (
@@ -51,35 +69,35 @@ const HomePage = () => {
             <MainNavbar />
             <div className="hero-section">
                 <div className="hero-text">
-                    <h1>Welcome to the Learning Management System</h1>
-                    <p>Your gateway to an advanced learning experience. Manage courses, track progress, and more!</p>
-                    <a href="/login" className="cta-button">Get Started</a>
+                    <h1>Welcome to the Future of Learning</h1>
+                    <p>Discover innovative courses and tools to boost your skills and career.</p>
+                    <a href="/login" className="cta-button">Join Now</a>
                 </div>
                 <div className="hero-image">
-                    <img src={image} alt="LMS Hero" />
+                    <img src={image} alt="Learning Platform" />
                 </div>
             </div>
 
             <div className="features-section">
-                <h2>Why Choose Our LMS?</h2>
+                <h2>Why Our Platform?</h2>
                 <div className="features">
                     <div className="feature-card">
-                        <h3>Interactive Learning</h3>
-                        <p>Engage with interactive course content and quizzes that improve retention.</p>
+                        <h3>Comprehensive Courses</h3>
+                        <p>Access in-depth courses designed by industry experts.</p>
                     </div>
                     <div className="feature-card">
-                        <h3>Real-time Analytics</h3>
-                        <p>Track your learning progress and get insights into areas of improvement.</p>
+                        <h3>Flexible Learning</h3>
+                        <p>Learn at your own pace with 24/7 access to resources.</p>
                     </div>
                     <div className="feature-card">
-                        <h3>Role-based Access</h3>
-                        <p>Admin, Instructor, Student, and Content Creator roles offer tailored dashboards and functionalities.</p>
+                        <h3>Community Support</h3>
+                        <p>Join a community of learners and mentors to enhance your journey.</p>
                     </div>
                 </div>
             </div>
 
             <div className="course-cards-section">
-                <h2>Explore Our Courses</h2>
+                <h2>Popular Courses</h2>
                 <div className="course-cards">
                     {staticCourses.map(course => (
                         <div className="course-card" key={course.id}>
@@ -102,26 +120,22 @@ const HomePage = () => {
             <div className="testimonials-section">
                 <h2>What Our Users Say</h2>
                 <div className="testimonials">
-                    <div className="testimonial">
-                        <p>"The LMS has helped me track my progress and manage my learning much better!"</p>
-                        <h4>- Anirudh, Student</h4>
-                    </div>
-                    <div className="testimonial">
-                        <p>"Creating courses and interacting with students has never been easier!"</p>
-                        <h4>- S.S Thaman, Instructor</h4>
-                    </div>
+                    {testimonialsData.map((testimonial) => (
+                        <div className="testimonial" key={testimonial.id}>
+                            <img src={testimonial.avatar} alt={testimonial.name} />
+                            <p>"{testimonial.text}"</p>
+                            <h4>- {testimonial.name}</h4>
+                        </div>
+                    ))}
                 </div>
             </div>
 
-            
-
             <center>
-  <h3><a href="/login" style={{ color: 'grey'  }}>Please Login to access the Content?</a></h3>
-</center>
-
-            
+                <h3>
+                    <a href="/login" style={{ color: 'grey' }}>Login to Access Exclusive Content</a>
+                </h3>
+            </center>
         </div>
-       
     );
 };
 

@@ -18,7 +18,6 @@ const resources = [
 const BlogResources = () => {
     const [search, setSearch] = useState('');
 
-    // Function to filter articles and resources based on search query
     const filteredArticles = articles.filter(article => article.title.toLowerCase().includes(search.toLowerCase()));
     const filteredResources = resources.filter(resource => resource.title.toLowerCase().includes(search.toLowerCase()));
 
@@ -27,7 +26,7 @@ const BlogResources = () => {
             <MainNavbar />
             <div className="blog-resources">
                 <h1>Blog and Resources</h1>
-                <p>Welcome to our Blog and Resources section! Here, you will find articles, tutorials, and other helpful materials to enhance your learning experience.</p>
+                <p>Explore a curated collection of articles and resources to enhance your learning journey.</p>
                 
                 <div className="search-bar">
                     <input
