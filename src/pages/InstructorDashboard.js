@@ -61,6 +61,7 @@ const styles = {
         display: "flex",
         justifyContent: "center",
         gap: "20px",
+
         flexWrap: "wrap",
     },
     card: {
@@ -72,6 +73,7 @@ const styles = {
         textAlign: "left",
         transition: "transform 0.3s",
         cursor: "pointer",
+        color:"black"
     },
     cardHover: {
         transform: "scale(1.05)",
@@ -82,7 +84,7 @@ const styles = {
     },
     cardText: {
         fontSize: "1em",
-        color: "#777",
+        color: "black",
     },
 };
 

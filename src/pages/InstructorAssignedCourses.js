@@ -55,7 +55,7 @@ const InstructorAssignedCourses = () => {
 
         <div style={{ display: "flex", justifyContent: "space-between", marginTop: "20px" }}>
           {/* Assigned Courses */}
-          <div style={{ width: "45%", backgroundColor: "#fff", padding: "20px", borderRadius: "8px" }}>
+          <div style={{ width: "45%", backgroundColor: "#fff", padding: "20px", borderRadius: "8px",color:"black" }}>
             <h3>Courses</h3>
             {assignedCourses.length === 0 ? (
               <p>No courses assigned.</p>
@@ -82,7 +82,7 @@ const InstructorAssignedCourses = () => {
           </div>
 
           {/* Course Students */}
-          <div style={{ width: "45%", backgroundColor: "#fff", padding: "20px", borderRadius: "8px" }}>
+          <div style={{ width: "45%", backgroundColor: "#fff", padding: "20px", borderRadius: "8px",color:"black" }}>
             <h3>
               {selectedCourse ? `${selectedCourse.courseName} Students` : "Select a Course"}
             </h3>

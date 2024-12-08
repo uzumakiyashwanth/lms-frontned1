@@ -23,6 +23,8 @@ import StudentCourses from "./pages/StudentCourses";
 import InstructorMyProfile from "./pages/InstructorMyProfile";
 import InstructoraddCourses from "./pages/InstructoraddCourses";
 import InstructorCourses from "./pages/InstructorAssignedCourses";
+import InstructorAddMaterial from "./pages/InstructorAddMaterial";
+import StudentViewMaterials from "./pages/StudentViewMaterials";
 
 
 
@@ -43,11 +45,12 @@ const App = () => {
                 <Route path="/student-courses" element={<PrivateRoute element={StudentCourses}/>}/>
 
 
+
                 <Route path="/admin-dashboard" element={<PrivateRoute element={AdminDashboard} />} />
                 <Route path="/admin-view-instructors" element={<PrivateRoute element={AdminviewInstructors} />} />
 
-                
-              
+                <Route path="/instructor-material" element={<PrivateRoute element={InstructorAddMaterial}/>}/>
+              <Route path="/student-your-materials" element={<PrivateRoute element={StudentViewMaterials}/>}/>
                 <Route path="/instructor-profile" element={<PrivateRoute element={InstructorMyProfile}/>}/>
                 <Route path="/instructor-courses" element={<PrivateRoute element={InstructoraddCourses}/>}/>
                 <Route path="/instructor-your-courses" element={<PrivateRoute element={InstructorCourses}/>}/>

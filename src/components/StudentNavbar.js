@@ -34,7 +34,7 @@ const StudentNavbar = () => {
                 <Link to="/student-dashboard">Dashboard</Link>
                 <Link to="/student-register-course">Explore Courses</Link>
                 <Link to="/student-courses">Your Courses</Link>
-               
+               <Link to="/student-your-materials">Your material</Link>
                 <Link to="/myprofile">MY Profile</Link>
             </div>
             <div className="profile-section">

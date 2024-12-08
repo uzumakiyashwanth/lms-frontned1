@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import StudentNavbar from "../components/StudentNavbar";
 
 const StudentYourMaterial = () => {
   const [materials, setMaterials] = useState([]);
@@ -19,6 +20,7 @@ const StudentYourMaterial = () => {
 
   return (
     <div>
+        
       <h2>Your Course Materials</h2>
       {materials.length > 0 ? (
         materials.map((material) => (
