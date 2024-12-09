@@ -71,7 +71,7 @@ const HomePage = () => {
                 <div className="hero-text">
                     <h1>Welcome to the Future of Learning</h1>
                     <p>Discover innovative courses and tools to boost your skills and career.</p>
-                    <a href="/login" className="cta-button">Join Now</a>
+                    <a href="https://learningmanagementsystem1.netlify.app/login" className="cta-button">Join Now</a>
                 </div>
                 <div className="hero-image">
                     <img src={image} alt="Learning Platform" />
