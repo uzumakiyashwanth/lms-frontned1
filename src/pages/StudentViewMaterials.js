@@ -8,13 +8,13 @@ const StudentViewMaterials = () => {
     const [previewMaterial, setPreviewMaterial] = useState(null);
 
     useEffect(() => {
-        axios.get('http://localhost:8080/materials')
+        axios.get('https://lms-backend-production-8431.up.railway.app/materials')
             .then((response) => setMaterials(response.data))
             .catch((error) => console.error('Error fetching materials:', error));
     }, []);
 
     const handlePreview = (fileName) => {
-        const url = `http://localhost:8080/files/${fileName}`;
+        const url = `https://lms-backend-production-8431.up.railway.app/files/${fileName}`;
         setPreviewMaterial(url);
     };
 
@@ -37,7 +37,7 @@ const StudentViewMaterials = () => {
                                     View
                                 </button>
                                 <a
-                                    href={`http://localhost:8080/files/${material.fileName}`}
+                                    href={`https://lms-backend-production-8431.up.railway.app/files/${material.fileName}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     download

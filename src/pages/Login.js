@@ -33,7 +33,7 @@ const Login = () => {
   // Send OTP to email
   const sendOtp = async (email) => {
     try {
-      const response = await axios.post("http://localhost:8080/api/email/send-otp", { email });
+      const response = await axios.post("https://lms-backend-production-8431.up.railway.app/api/email/send-otp", { email });
       if (response.status === 200) {
         toast.success("OTP sent successfully to your email.");
         setOtpSent(true);
@@ -72,8 +72,8 @@ const Login = () => {
       } else {
         const endpoint =
           role === "STUDENT"
-            ? "http://localhost:8080/getregisterationdata"
-            : "http://localhost:8080/instructors";
+            ? "https://lms-backend-production-8431.up.railway.app/getregisterationdata"
+            : "https://lms-backend-production-8431.up.railway.app/instructors";
         const response = await axios.get(endpoint);
         const users = response.data;
         const user = users.find(
@@ -108,7 +108,7 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:8080/api/email/validate-otp", {
+      const response = await axios.post("https://lms-backend-production-8431.up.railway.app/api/email/validate-otp", {
         email: formData.email,
         otp: parseInt(otp), // Ensure OTP is sent as an integer
       });

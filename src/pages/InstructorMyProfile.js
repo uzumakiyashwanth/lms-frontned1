@@ -10,7 +10,7 @@ const InstructorMyProfile = () => {
 
     const fetchInstructorDetails = useCallback(async () => {
         try {
-            const response = await axios.get('http://localhost:8080/instructors');
+            const response = await axios.get('https://lms-backend-production-8431.up.railway.app/instructors');
             const instructor = response.data.find(instructor => instructor.email === email);
             if (instructor) {
                 setInstructorDetails(instructor);
@@ -35,7 +35,7 @@ const InstructorMyProfile = () => {
 
     const handleUpdate = async () => {
         try {
-            await axios.put(`http://localhost:8080/instructors/${editInstructor.id}`, editInstructor);
+            await axios.put(`https://lms-backend-production-8431.up.railway.app/instructors/${editInstructor.id}`, editInstructor);
             setEditMode(false);
             fetchInstructorDetails();
             alert("Profile updated successfully!");

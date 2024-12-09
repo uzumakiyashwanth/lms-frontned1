@@ -17,7 +17,7 @@ const InstructorAddMaterial = () => {
         formData.append('file', file);
 
         try {
-            const response = await axios.post('http://localhost:8080/materials', formData);
+            const response = await axios.post('https://lms-backend-production-8431.up.railway.app/materials', formData);
             setSuccess(response.data.message);
             setTitle('');
             setDescription('');

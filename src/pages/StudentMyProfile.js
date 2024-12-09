@@ -10,7 +10,7 @@ const StudentMyProfile = () => {
 
     const fetchStudentDetails = useCallback(async () => {
         try {
-            const response = await axios.get('http://localhost:8080/getregisterationdata');
+            const response = await axios.get('https://lms-backend-production-8431.up.railway.app/getregisterationdata');
             const student = response.data.find(student => student.email === email);
             if (student) {
                 setStudentDetails(student);
@@ -35,7 +35,7 @@ const StudentMyProfile = () => {
 
     const handleUpdate = async () => {
         try {
-            await axios.put(`http://localhost:8080/updateuser/${editStudent.id}`, editStudent);
+            await axios.put(`https://lms-backend-production-8431.up.railway.app/updateuser/${editStudent.id}`, editStudent);
             setEditMode(false);
             fetchStudentDetails();
             alert("Profile updated successfully!");

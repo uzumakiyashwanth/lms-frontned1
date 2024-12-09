@@ -28,9 +28,9 @@ const AssignCourse = () => {
     const fetchData = async () => {
         try {
             const [courseRes, studentRes, instructorRes] = await Promise.all([
-                axios.get('http://localhost:8080/api/courses'),
-                axios.get('http://localhost:8080/getregisterationdata'),
-                axios.get('http://localhost:8080/instructors'),
+                axios.get('https://lms-backend-production-8431.up.railway.app/api/courses'),
+                axios.get('https://lms-backend-production-8431.up.railway.app/getregisterationdata'),
+                axios.get('https://lms-backend-production-8431.up.railway.app/instructors'),
             ]);
             setCourses(courseRes.data);
             setStudents(studentRes.data);
@@ -42,7 +42,7 @@ const AssignCourse = () => {
 
     const fetchAssignedCourses = async () => {
         try {
-            const res = await axios.get('http://localhost:8080/api/assigned-courses');
+            const res = await axios.get('https://lms-backend-production-8431.up.railway.app/api/assigned-courses');
             setAssignedCourseList(res.data);  // Set the state with the list of assigned courses from the backend
         } catch (err) {
             console.error('Error fetching assigned courses:', err);
@@ -64,7 +64,7 @@ const AssignCourse = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:8080/api/assign-course', assignedCourses);
+            const response = await axios.post('https://lms-backend-production-8431.up.railway.app/api/assign-course', assignedCourses);
 
             if (response.status === 201 || response.status === 200) {
                 setSuccessMessage('Course assigned successfully!');
@@ -131,7 +131,7 @@ const AssignCourse = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.delete(`http://localhost:8080/api/assigned-courses/${id}`);
+            await axios.delete(`https://lms-backend-production-8431.up.railway.app/api/assigned-courses/${id}`);
             setSuccessMessage('Assigned course deleted successfully!');
             fetchAssignedCourses(); // Refresh the list after deletion
         } catch (err) {

@@ -15,9 +15,9 @@ const AdminDashboard = () => {
     // Fetch total counts of students, instructors, and courses
     const fetchCounts = async () => {
         try {
-            const studentsResponse = await axios.get('http://localhost:8080/students/count');
-            const instructorsResponse = await axios.get('http://localhost:8080/instructors/count');
-            const coursesResponse = await axios.get('http://localhost:8080/courses/count');
+            const studentsResponse = await axios.get('https://lms-backend-production-8431.up.railway.app/students/count');
+            const instructorsResponse = await axios.get('https://lms-backend-production-8431.up.railway.app/instructors/count');
+            const coursesResponse = await axios.get('https://lms-backend-production-8431.up.railway.app/courses/count');
     
             setCounts({
                 students: studentsResponse.data,

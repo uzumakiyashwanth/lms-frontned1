@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:8080/auth";
+const API_URL = "https://lms-backend-production-8431.up.railway.app/auth";
 
 class AuthService {
     register(user) {

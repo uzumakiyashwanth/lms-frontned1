@@ -11,7 +11,7 @@ const StudentCourses = () => {
   const fetchStudentDetails = useCallback(async () => {
     try {
       const email = localStorage.getItem("Useremail");
-      const response = await axios.get("http://localhost:8080/getregisterationdata");
+      const response = await axios.get("https://lms-backend-production-8431.up.railway.app/getregisterationdata");
       const student = response.data.find((student) => student.email === email);
       if (student) {
         setStudentDetails(student);
@@ -25,7 +25,7 @@ const StudentCourses = () => {
   // Fetch assigned courses for the student
   const fetchAssignedCourses = async (studentId) => {
     try {
-      const response = await axios.get(`http://localhost:8080/api/assigned-courses/${studentId}`);
+      const response = await axios.get(`https://lms-backend-production-8431.up.railway.app/api/assigned-courses/${studentId}`);
       setAssignedCourses(response.data);
     } catch (error) {
       console.error("Error fetching assigned courses:", error);

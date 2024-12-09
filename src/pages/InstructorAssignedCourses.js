@@ -16,7 +16,7 @@ const InstructorAssignedCourses = () => {
   const fetchAssignedCourses = async () => {
     try {
       setLoading(true);
-      const response = await axios.get("http://localhost:8080/api/assigned-courses");
+      const response = await axios.get("https://lms-backend-production-8431.up.railway.app/api/assigned-courses");
       setAssignedCourses(response.data);
     } catch (error) {
       setError("Failed to fetch assigned courses.");
@@ -29,7 +29,7 @@ const InstructorAssignedCourses = () => {
   const fetchCourseStudents = async (courseId) => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://localhost:8080/api/assigned-courses/${courseId}`);
+      const response = await axios.get(`https://lms-backend-production-8431.up.railway.app/api/assigned-courses/${courseId}`);
       setCourseStudents(response.data);
     } catch (error) {
       setError("Failed to fetch course students.");

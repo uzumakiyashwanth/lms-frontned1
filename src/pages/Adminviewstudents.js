@@ -31,7 +31,7 @@ const AdminViewStudents = () => {
 
     const fetchStudents = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/getregisterationdata');
+            const response = await axios.get('https://lms-backend-production-8431.up.railway.app/getregisterationdata');
             setStudents(response.data);
         } catch (error) {
             console.error("Error fetching registration data:", error);
@@ -79,7 +79,7 @@ const AdminViewStudents = () => {
         if (!checkUniqueFields()) return;
 
         try {
-            await axios.post('http://localhost:8080/registernew', newStudent);
+            await axios.post('https://lms-backend-production-8431.up.railway.app/registernew', newStudent);
             fetchStudents();
             setNewStudent({
                 name: '',
@@ -111,7 +111,7 @@ const AdminViewStudents = () => {
         }
 
         try {
-            await axios.put(`http://localhost:8080/updateuser/${editStudent.id}`, editStudent);
+            await axios.put(`https://lms-backend-production-8431.up.railway.app/updateuser/${editStudent.id}`, editStudent);
             fetchStudents();
             setEditStudent({
                 id: '',
@@ -130,7 +130,7 @@ const AdminViewStudents = () => {
 
     const handleDeleteStudent = async (id) => {
         try {
-            await axios.delete(`http://localhost:8080/deleteuser/${id}`);
+            await axios.delete(`https://lms-backend-production-8431.up.railway.app/deleteuser/${id}`);
             fetchStudents();
         } catch (error) {
             console.error("Error deleting student:", error);

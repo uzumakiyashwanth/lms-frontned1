@@ -31,7 +31,7 @@ const ContactForm = () => {
     };
     try {
       setDisabled(true);
-      const response = await axios.post('http://localhost:8080/api/email/send', formattedData);
+      const response = await axios.post('https://lms-backend-production-8431.up.railway.app/api/email/send', formattedData);
       console.log(response.data);
       notify('Your response has been successfully submitted!', 'success');
     } catch (error) {

@@ -15,7 +15,7 @@ const ManageCourses = () => {
 
     const fetchCourses = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/api/courses');
+            const response = await axios.get('https://lms-backend-production-8431.up.railway.app/api/courses');
             setCourses(response.data);
         } catch (error) {
             console.error("Error fetching courses:", error);
@@ -26,7 +26,7 @@ const ManageCourses = () => {
         if (!newCourse.name || !newCourse.description) return alert("Please fill in all fields");
 
         try {
-            const response = await axios.post('http://localhost:8080/api/courses', newCourse);
+            const response = await axios.post('https://lms-backend-production-8431.up.railway.app/api/courses', newCourse);
             setCourses(prevCourses => [...prevCourses, response.data]);
             setNewCourse({ name: '', description: '' });
         } catch (error) {
@@ -38,7 +38,7 @@ const ManageCourses = () => {
         if (!newCourse.name || !newCourse.description) return alert("Please fill in all fields");
 
         try {
-            const response = await axios.put(`http://localhost:8080/api/courses/${currentCourseId}`, newCourse);
+            const response = await axios.put(`https://lms-backend-production-8431.up.railway.app/api/courses/${currentCourseId}`, newCourse);
             setCourses(prevCourses =>
                 prevCourses.map(course => (course.id === currentCourseId ? response.data : course))
             );
@@ -58,7 +58,7 @@ const ManageCourses = () => {
 
     const handleDeleteCourse = async (courseId) => {
         try {
-            await axios.delete(`http://localhost:8080/api/courses/${courseId}`);
+            await axios.delete(`https://lms-backend-production-8431.up.railway.app/api/courses/${courseId}`);
             setCourses(prevCourses => prevCourses.filter(course => course.id !== courseId));
         } catch (error) {
             console.error("Error deleting course:", error);

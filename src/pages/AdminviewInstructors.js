@@ -20,7 +20,7 @@ const AdminviewInstructors = () => {
     // Fetch all instructors
     const fetchInstructors = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/instructors');
+            const response = await axios.get('https://lms-backend-production-8431.up.railway.app/instructors');
             setInstructors(response.data);
         } catch (error) {
             console.error("Error fetching instructors:", error);
@@ -71,7 +71,7 @@ const AdminviewInstructors = () => {
             const instructorData = { ...newInstructor };
             delete instructorData.id; // Ensure 'id' is not sent in POST request
     
-            const response = await axios.post('http://localhost:8080/instructors', instructorData);
+            const response = await axios.post('https://lms-backend-production-8431.up.railway.app/instructors', instructorData);
             console.log(response); // Log the response
             setNewInstructor({
                 id: '',
@@ -95,7 +95,7 @@ const AdminviewInstructors = () => {
     // Handle deleting an instructor
     const handleDeleteInstructor = async (id) => {
         try {
-            await axios.delete(`http://localhost:8080/instructors/${id}`);
+            await axios.delete(`https://lms-backend-production-8431.up.railway.app/instructors/${id}`);
             fetchInstructors(); // Reload instructors after deletion
             alert('Instructor deleted successfully');
         } catch (error) {
@@ -109,7 +109,7 @@ const AdminviewInstructors = () => {
 
         try {
             const updatedInstructor = { ...newInstructor, id };
-            await axios.put(`http://localhost:8080/instructors/${id}`, updatedInstructor);
+            await axios.put(`https://lms-backend-production-8431.up.railway.app/instructors/${id}`, updatedInstructor);
             fetchInstructors(); // Reload instructors after update
             setNewInstructor({
                 id: '',

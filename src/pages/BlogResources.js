@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './BlogResources.css';
 import MainNavbar from "../components/MainNavbar";
 
-// Sample Data for Articles and Resources
+// Define the sample data within the component or import from another file
 const articles = [
     { id: 1, title: "10 Tips for Effective Online Learning", link: "https://www.educations.com/study-guides/study-online", description: "Learn how to maximize your online learning experience with these 10 essential tips." },
     { id: 2, title: "How to Stay Motivated While Studying Online", link: "https://professionalprograms.pearson.com/blogs/5-tips-to-keep-motivated-when-learning-online.html", description: "Stay motivated and focused during your online learning journey." },
@@ -24,42 +24,55 @@ const BlogResources = () => {
     return (
         <div>
             <MainNavbar />
-            <div className="blog-resources">
-                <h1>Blog and Resources</h1>
-                <p>Explore a curated collection of articles and resources to enhance your learning journey.</p>
-                
-                <div className="search-bar">
-                    <input
-                        type="text"
-                        placeholder="Search articles and resources..."
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                    />
-                </div>
-
-                <h2>Recent Articles</h2>
-                <div className="card-container">
-                    {filteredArticles.map(article => (
-                        <div key={article.id} className="card">
-                            <a href={article.link} target="_blank" rel="noopener noreferrer">
-                                <h3>{article.title}</h3>
-                                <p>{article.description}</p>
-                            </a>
+            <div className="layout">
+                <aside className="sidebar">
+                    <h2>Categories</h2>
+                    <ul>
+                        <li>Articles</li>
+                        <li>Resources</li>
+                        <li>Blogs</li>
+                    </ul>
+                </aside>
+                <main className="content">
+                    <div className="header">
+                        <h1>Discover Knowledge</h1>
+                        <p>Your gateway to the latest articles and resources</p>
+                    </div>
+                    <div className="search-bar">
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            value={search}
+                            onChange={(e) => setSearch(e.target.value)}
+                        />
+                    </div>
+                    <section>
+                        <h2>Articles</h2>
+                        <div className="grid">
+                            {filteredArticles.map(article => (
+                                <div key={article.id} className="tile">
+                                    <a href={article.link} target="_blank" rel="noopener noreferrer">
+                                        <h3>{article.title}</h3>
+                                        <p>{article.description}</p>
+                                    </a>
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
-
-                <h2>Resources</h2>
-                <div className="card-container">
-                    {filteredResources.map(resource => (
-                        <div key={resource.id} className="card">
-                            <a href={resource.link} target="_blank" rel="noopener noreferrer">
-                                <h3>{resource.title}</h3>
-                                <p>{resource.description}</p>
-                            </a>
+                    </section>
+                    <section>
+                        <h2>Resources</h2>
+                        <div className="grid">
+                            {filteredResources.map(resource => (
+                                <div key={resource.id} className="tile">
+                                    <a href={resource.link} target="_blank" rel="noopener noreferrer">
+                                        <h3>{resource.title}</h3>
+                                        <p>{resource.description}</p>
+                                    </a>
+                                </div>
+                            ))}
                         </div>
-                    ))}
-                </div>
+                    </section>
+                </main>
             </div>
         </div>
     );

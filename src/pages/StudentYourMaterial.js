@@ -8,7 +8,7 @@ const StudentYourMaterial = () => {
   useEffect(() => {
     const fetchMaterials = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/api/materials");
+        const response = await axios.get("https://lms-backend-production-8431.up.railway.app/api/materials");
         setMaterials(response.data);
       } catch (error) {
         console.error("Error fetching materials:", error);
@@ -33,7 +33,7 @@ const StudentYourMaterial = () => {
                   <div key={index}>
                     <video width="400" controls>
                       <source
-                        src={`http://localhost:8080/videos/${videoUrl}`}
+                        src={`https://lms-backend-production-8431.up.railway.app/videos/${videoUrl}`}
                         type="video/mp4"
                       />
                       Your browser does not support the video tag.
@@ -50,7 +50,7 @@ const StudentYourMaterial = () => {
                 material.pdfUrls.map((pdfUrl, index) => (
                   <div key={index}>
                     <embed
-                      src={`http://localhost:8080/pdfs/${pdfUrl}`}
+                      src={`https://lms-backend-production-8431.up.railway.app/pdfs/${pdfUrl}`}
                       type="application/pdf"
                       width="600"
                       height="400"
