@@ -164,6 +164,7 @@ const Login = () => {
   return (
     <div>
       <MainNavbar />
+ <h1> for testing purpose credentials for admin are email:admin@example.com  and password:admin123 </h1>
       <div className="login-container">
         <div className="image-section">
           <img src="path_to_your_image" alt="Login illustration" />
