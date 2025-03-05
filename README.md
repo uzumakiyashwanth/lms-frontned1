@@ -14,5 +14,10 @@ when we enter otp only we we will enter into the student dashboard and for instr
  we can see our courses and all the courses and also our material 
 
 in instructor he can add the courses
+The team Members involved are 
+ P.Mani Swaroop (Team Lead)
+ A.Ram Prasad
+ V.Lokesh
+ 
 
 
