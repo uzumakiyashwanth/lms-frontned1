@@ -17,7 +17,7 @@ const MainNavbar = () => {
                 <Link to="/blog">Blog/Resources</Link>
                <Link to="/contact-us">Contact Us</Link>
                 <Link to="/login">Login</Link>
-                <Link to="/Our-Team">Our Team</Link>
+
               
             </div>
             <button onClick={handleRegisterForCourse} className="register-button">
